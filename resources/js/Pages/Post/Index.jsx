@@ -6,24 +6,17 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 //components
 import InputError from "@/Components/InputError";
 import PrimaryButton from "@/Components/PrimaryButton";
-import Chirp from "@/Components/Chirp";
+
 
 //
-import { useForm, Head } from "@inertiajs/react";
+import { Head } from '@inertiajs/react';
 
-const Index = ({ auth, chirps }) => {
-    const { data, setData, post, processing, reset, errors } = useForm({
-        message: "",
-    });
+const Index = ({ auth }) => {
 
-    const submit = (e) => {
-        e.preventDefault();
-        post(route("chirps.store"), { onSuccess: () => reset() });
-    };
 
     return (
         <AuthenticatedLayout user={auth.user}>
-            <Head title="Chirps" />
+            <Head title="Feed" />
 
          <div>List post</div>
         </AuthenticatedLayout>
