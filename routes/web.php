@@ -32,7 +32,7 @@ Route::get('/dashboard', function () {
 
 
 Route::resource('post', PostController::class)
-    ->only(['index','create'])
+    ->only(['index','create', 'store'])
     ->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {

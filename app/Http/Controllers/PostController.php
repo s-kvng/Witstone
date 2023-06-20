@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -31,9 +31,14 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        
+        $validate = $request->validate([
+            'message' => 'required|string|max:255',
+        ]);
+
+        return redirect(route('post.index'));
     }
 
     /**

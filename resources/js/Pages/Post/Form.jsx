@@ -11,7 +11,7 @@ export default function Index({ auth }) {
  
     const submit = (e) => {
         e.preventDefault();
-        post(route('chirps.store'), { onSuccess: () => reset() });
+        post(route('post.store'), { onSuccess: () => reset() });
     };
  
     return (
