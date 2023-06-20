@@ -32,11 +32,13 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request): RedirectResponse
-    {
+    {   
         
-        $validate = $request->validate([
+        $validated = $request->validate([
             'message' => 'required|string|max:255',
         ]);
+
+        $request->user()->posts()->create($validated);
 
         return redirect(route('post.index'));
     }
