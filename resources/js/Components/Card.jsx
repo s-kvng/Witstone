@@ -7,6 +7,7 @@ import PrimaryButton from "./PrimaryButton";
 
 //inertiajs react component
 import { useForm, usePage } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 
 //packages
 // import dayjs from "dayjs";
@@ -30,6 +31,10 @@ const Card = ({ chirp }) => {
         });
     };
 
+    const likeBtn = () => {
+        this.$inertia.post;
+    };
+
     return (
         <div className="p-6 flex space-x-2 ">
             <svg
@@ -49,7 +54,9 @@ const Card = ({ chirp }) => {
             <div className="flex-1">
                 <div className="flex justify-between items-center">
                     <div>
-                        <span className="dark:text-white">{chirp.user.name}</span>
+                        <span className="dark:text-white">
+                            {chirp.user.name}
+                        </span>
                         <small className="ml-2 text-sm dark:text-gray-400 text-zinc-500">
                             {/* {dayjs(chirp.created_at).fromNow()} */}time848
                         </small>
@@ -76,7 +83,11 @@ const Card = ({ chirp }) => {
                                 >
                                     Edit
                                 </button>
-                                <Dropdown.Link as="button" href={route('posts.destroy', chirp.id)} method="delete">
+                                <Dropdown.Link
+                                    as="button"
+                                    href={route("posts.destroy", chirp.id)}
+                                    method="delete"
+                                >
                                     Delete
                                 </Dropdown.Link>
                             </Dropdown.Content>
@@ -84,32 +95,51 @@ const Card = ({ chirp }) => {
                     )}
                 </div>
                 {editing ? (
-                  <form onSubmit={submit}>
-                    <textarea 
-                      value={data.message}  
-                      onChange={e => setData('message', e.target.value)}
-                      className="mt-4 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-                    >
-                    </textarea>
-                    <InputError message={errors.message} className="mt-2" />
+                    <form onSubmit={submit}>
+                        <textarea
+                            value={data.message}
+                            onChange={(e) => setData("message", e.target.value)}
+                            className="mt-4 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                        ></textarea>
+                        <InputError message={errors.message} className="mt-2" />
 
-                    <div className="space-x-2">
-                      <PrimaryButton className="mt-4" >Save</PrimaryButton>
-                      <button className="mt-4" onClick={()=> { setEditing(false); reset(); clearErrors(); }}>cancel</button>
-
-                    </div>
-                  </form>
+                        <div className="space-x-2">
+                            <PrimaryButton className="mt-4">Save</PrimaryButton>
+                            <button
+                                className="mt-4"
+                                onClick={() => {
+                                    setEditing(false);
+                                    reset();
+                                    clearErrors();
+                                }}
+                            >
+                                cancel
+                            </button>
+                        </div>
+                    </form>
                 ) : (
-                  <p className="mt-4 mb-3 text-lg dark:text-gray-300">{chirp.message}</p>
+                    <p className="mt-4 mb-3 text-lg dark:text-gray-300">
+                        {chirp.message}
+                    </p>
                 )}
 
-                    <div className=" flex gap-x-5">
-                        <p>icon<span className=" dark:text-zinc-400 text-zinc-600">300</span></p>
-                        <p>icon<span className="dark:text-zinc-400 text-zinc-600">400</span></p>
-                    </div>
+                <div className=" flex gap-x-5">
+                    <p>
+                       <Link as="button" href={route('posts.like', chirp.id)} method="post">
+                            {chirp.liked ? <span>unlike</span> : <span>like</span>}
+                       </Link>
+                        <span className=" dark:text-zinc-400 text-zinc-600">
+                            300
+                        </span>
+                    </p>
+                    <p>
+                        icon
+                        <span className="dark:text-zinc-400 text-zinc-600">
+                            400
+                        </span>
+                    </p>
+                </div>
             </div>
-
-            
         </div>
     );
 };

@@ -17,7 +17,13 @@ class PostController extends Controller
     {
         return Inertia::render('Post/Index', [
             
-            'posts' => Post::with('user:id,name')->latest()->get(),
+            'posts' => Post::with('user:id,name')
+                    ->withCount([
+                        'likes as liked' => function($q){
+                            $q->where('user_id', auth()->id());
+                        }
+                    ])->withCasts(['liked' => 'boolean'])
+                    ->latest()->get(),
         ]);
     }
 
