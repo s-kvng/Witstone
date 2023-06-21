@@ -18,7 +18,9 @@ export default function Index({ auth }) {
         <AuthenticatedLayout user={auth.user}>
             <Head title="Chirps" />
  
-            <div className="max-w-2xl mx-auto p-5 sm:p-7 lg:p-9 mt-11">
+            <div className=' pt-28'>
+
+            <div className="max-w-2xl mx-auto p-5 sm:p-7 lg:p-9 ">
                 <form onSubmit={submit}>
                     <textarea
                         value={data.message}
@@ -34,6 +36,8 @@ export default function Index({ auth }) {
 
             <div className=" text-sm text-zinc-600 container mx-auto text-center pt-10 px-3">
                 Tip : Platform made to share your thought without holding back..
+            </div>
+
             </div>
         </AuthenticatedLayout>
     );
