@@ -25,7 +25,7 @@ const Card = ({ chirp }) => {
 
     const submit = (e) => {
         e.preventDefault();
-        patch(route("chirps.update", chirp.id), {
+        patch(route("posts.update", chirp.id), {
             onSuccess: () => setEditing(false),
         });
     };
@@ -76,7 +76,7 @@ const Card = ({ chirp }) => {
                                 >
                                     Edit
                                 </button>
-                                <Dropdown.Link as="button" href={route('post.destroy', chirp.id)} method="delete">
+                                <Dropdown.Link as="button" href={route('posts.destroy', chirp.id)} method="delete">
                                     Delete
                                 </Dropdown.Link>
                             </Dropdown.Content>

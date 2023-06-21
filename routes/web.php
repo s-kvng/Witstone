@@ -31,9 +31,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::resource('post', PostController::class)
+Route::resource('posts', PostController::class)
     ->only(['index','create', 'store', 'destroy'])
     ->middleware(['auth', 'verified']);
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

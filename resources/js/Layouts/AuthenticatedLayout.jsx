@@ -24,10 +24,10 @@ export default function Authenticated({ user, header, children }) {
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
                                 </NavLink>
-                                <NavLink href={route('post.index')} active={route().current('post.index')}>
+                                <NavLink href={route('posts.index')} active={route().current('post.index')}>
                                     Feed
                                 </NavLink>
-                                <NavLink href={route('post.create')} active={route().current('post.create')}>
+                                <NavLink href={route('posts.create')} active={route().current('post.create')}>
                                     Post
                                 </NavLink>
                             </div>
@@ -101,7 +101,7 @@ export default function Authenticated({ user, header, children }) {
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
                             Dashboard
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('post.index')} active={route().current('post.index')}>
+                        <ResponsiveNavLink href={route('posts.index')} active={route().current('posts.index')}>
                             Feed
                         </ResponsiveNavLink>
                     </div>

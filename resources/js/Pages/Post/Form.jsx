@@ -11,7 +11,7 @@ export default function Index({ auth }) {
  
     const submit = (e) => {
         e.preventDefault();
-        post(route('post.store'), { onSuccess: () => reset() });
+        post(route('posts.store'), { onSuccess: () => reset() });
     };
  
     return (
