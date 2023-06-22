@@ -20,7 +20,7 @@ const Index = ({ auth, posts }) => {
         <AuthenticatedLayout user={auth.user}>
             <Head title="Feed" />
 
-         <div className="container mx-auto pt-28">
+         <div className="container mx-auto pt-28 mb-28">
 
          <div className=" px-4 sm:px-0">
                     {posts.map((post) => (
