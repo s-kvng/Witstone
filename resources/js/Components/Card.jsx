@@ -9,11 +9,14 @@ import PrimaryButton from "./PrimaryButton";
 import { useForm, usePage } from "@inertiajs/react";
 import { Link } from "@inertiajs/react";
 
-//packages
-// import dayjs from "dayjs";
-// import relativeTime from "dayjs/plugin/relativeTime";
+//icons
+import { IoMdHeart } from "react-icons/io";
 
-// dayjs.extend(relativeTime);
+//packages
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
 
 const Card = ({ chirp }) => {
     const { auth } = usePage().props;
@@ -58,7 +61,7 @@ const Card = ({ chirp }) => {
                             {chirp.user.name}
                         </span>
                         <small className="ml-2 text-sm dark:text-gray-400 text-zinc-500">
-                            {/* {dayjs(chirp.created_at).fromNow()} */}time848
+                            {dayjs(chirp.created_at).fromNow()}
                         </small>
                     </div>
 
@@ -124,16 +127,46 @@ const Card = ({ chirp }) => {
                 )}
 
                 <div className=" flex gap-x-5">
-                    <p>
-                       <Link as="button" href={route('posts.like', chirp.id)} method="post">
-                            {chirp.liked ? <span>unlike</span> : <span>like</span>}
-                       </Link>
+                    <p className="flex align-items-center">
+                        <Link
+                            as="button"
+                            href={route("posts.like", chirp.id)}
+                            method="post"
+                        >
+                            {chirp.liked ? (
+                                <span>
+                                    {" "}
+                                    <IoMdHeart
+                                        size={20}
+                                        className=" text-sky-600"
+                                    />
+                                </span>
+                            ) : (
+                                <span>
+                                    {" "}
+                                    <IoMdHeart size={20} className="" />
+                                </span>
+                            )}
+                        </Link>
                         <span className=" dark:text-zinc-400 text-zinc-600">
                             300
                         </span>
                     </p>
-                    <p>
-                        icon
+                    <p className="flex align-items-center">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6 text-gray-600 -scale-x-100"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                            />
+                        </svg>
                         <span className="dark:text-zinc-400 text-zinc-600">
                             400
                         </span>
