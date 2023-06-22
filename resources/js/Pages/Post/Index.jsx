@@ -14,6 +14,7 @@ import { Head } from '@inertiajs/react';
 
 const Index = ({ auth, posts }) => {
 
+    console.log(posts);
 
     return (
         <AuthenticatedLayout user={auth.user}>

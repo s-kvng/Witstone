@@ -15,14 +15,16 @@ class LikedPostController extends Controller
 
         $post->likes()->toggle(auth()->id());
 
-        // if($post->likes()->where('user_id', auth()->id())->exists()){
+        
+
+        return redirect()->back();
+    }
+}
+
+// if($post->likes()->where('user_id', auth()->id())->exists()){
         //     $post->likes()->detach(auth()->id());
             
         // }
         // else{
         //     $post->likes()->attach(auth()->id());
         // }
-
-        return redirect()->back();
-    }
-}

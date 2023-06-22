@@ -25,4 +25,9 @@ class Post extends Model
     {
         return $this->belongsToMany(User::class , 'liked_post')->withTimestamps();
     }
+
+    public function getLikesCountAttribute()
+{
+    return $this->likes()->count();
+}
 }
