@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LikedPostController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -31,9 +32,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::resource('post', PostController::class)
-    ->only(['index','create', 'store'])
+Route::resource('posts', PostController::class)
+    ->only(['index','create', 'store', 'destroy'])
     ->middleware(['auth', 'verified']);
+
+Route::post('/posts/{post}/like', [LikedPostController::class, 'toggle'])->name('posts.like');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

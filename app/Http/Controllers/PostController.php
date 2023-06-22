@@ -13,9 +13,18 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): Response
     {
-        
+        return Inertia::render('Post/Index', [
+            
+            'posts' => Post::with('user:id,name')
+                    ->withCount([
+                        'likes as liked' => function($q){
+                            $q->where('user_id', auth()->id());
+                        }
+                    ])->withCasts(['liked' => 'boolean'])
+                    ->latest()->get(),
+        ]);
     }
 
     /**
@@ -32,13 +41,15 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request): RedirectResponse
-    {
+    {   
         
-        $validate = $request->validate([
+        $validated = $request->validate([
             'message' => 'required|string|max:255',
         ]);
 
-        return redirect(route('post.index'));
+        $request->user()->posts()->create($validated);
+
+        return redirect(route('posts.index'));
     }
 
     /**

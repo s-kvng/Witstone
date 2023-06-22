@@ -9,8 +9,8 @@ export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
-        <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
-            <nav className="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+        <div className="h-screen bg-gray-100 dark:bg-gray-900">
+            <nav className="bg-white fixed top-0 left-0 right-0 opacity-80 z-[999]  dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 shadow-md">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex">
@@ -23,6 +23,12 @@ export default function Authenticated({ user, header, children }) {
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
+                                </NavLink>
+                                <NavLink href={route('posts.index')} active={route().current('post.index')}>
+                                    Feed
+                                </NavLink>
+                                <NavLink href={route('posts.create')} active={route().current('post.create')}>
+                                    Post
                                 </NavLink>
                             </div>
                         </div>
@@ -95,6 +101,9 @@ export default function Authenticated({ user, header, children }) {
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
                             Dashboard
                         </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('posts.index')} active={route().current('posts.index')}>
+                            Feed
+                        </ResponsiveNavLink>
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
@@ -119,7 +128,7 @@ export default function Authenticated({ user, header, children }) {
                 </header>
             )}
 
-            <main>{children}</main>
+            <main className=''>{children}</main>
         </div>
     );
 }
