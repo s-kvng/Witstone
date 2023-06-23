@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikedPostController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -37,6 +38,10 @@ Route::resource('posts', PostController::class)
     ->middleware(['auth', 'verified']);
 
 Route::post('/posts/{post}/like', [LikedPostController::class, 'toggle'])->name('posts.like');
+
+Route::resource('comment', CommentController::class)
+    ->only(['store'])
+    ->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
