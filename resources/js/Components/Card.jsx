@@ -22,6 +22,7 @@ const Card = ({ chirp }) => {
     const { auth } = usePage().props;
 
     const [editing, setEditing] = useState(false);
+    // const [ likes , setLikes ] = useState(chirp.likesCount);
 
     const { data, setData, patch, clearErrors, reset, errors } = useForm({
         message: chirp.message,
@@ -34,9 +35,7 @@ const Card = ({ chirp }) => {
         });
     };
 
-    const likeBtn = () => {
-        this.$inertia.post;
-    };
+ 
 
     return (
         <div className="p-6 flex space-x-2 ">
@@ -149,7 +148,7 @@ const Card = ({ chirp }) => {
                             )}
                         </Link>
                         <span className=" dark:text-zinc-400 text-zinc-600">
-                            300
+                            {chirp.likesCount}
                         </span>
                     </p>
                     <p className="flex align-items-center">

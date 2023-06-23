@@ -13,19 +13,47 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): Response
-    {
-        return Inertia::render('Post/Index', [
+
+     public function index(): Response
+     {
+         $posts = Post::with('user:id,name')
+             ->withCount([
+                 'likes as liked' => function($q) {
+                     $q->where('user_id', auth()->id());
+                 }
+             ])
+             ->withCasts(['liked' => 'boolean'])
+             ->latest()
+             ->get();
+     
+         // Retrieve the likes count for each post
+         $posts->map(function ($post) {
+             $post->likesCount = $post->getLikesCountAttribute();
+             return $post;
+         });
+     
+         return Inertia::render('Post/Index', [
+             'posts' => $posts,
+         ]);
+     }
+     
+
+
+
+    // public function index(): Response
+    // {
+    //     return Inertia::render('Post/Index', [
             
-            'posts' => Post::with('user:id,name')
-                    ->withCount([
-                        'likes as liked' => function($q){
-                            $q->where('user_id', auth()->id());
-                        }
-                    ])->withCasts(['liked' => 'boolean'])
-                    ->latest()->get(),
-        ]);
-    }
+    //         'posts' => Post::with('user:id,name')
+    //                 ->withCount([
+    //                     'likes as liked' => function($q){
+    //                         $q->where('user_id', auth()->id());
+    //                     }
+    //                 ])->withCasts(['liked' => 'boolean'])
+    //                 ->latest()->get(),
+    //         'totalLikes' => Post::
+    //     ]);
+    // }
 
     /**
      * Show the form for creating a new resource.
