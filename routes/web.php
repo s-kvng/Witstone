@@ -34,7 +34,7 @@ Route::get('/dashboard', function () {
 
 
 Route::resource('posts', PostController::class)
-    ->only(['index','create', 'store', 'destroy'])
+    ->only(['index','create', 'store', 'destroy', 'show'])
     ->middleware(['auth', 'verified']);
 
 Route::post('/posts/{post}/like', [LikedPostController::class, 'toggle'])->name('posts.like');

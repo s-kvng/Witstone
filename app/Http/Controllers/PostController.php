@@ -83,9 +83,11 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(Post $post): Response
     {
-        //
+        return Inertia::render('Post/PostDetail', [
+            //
+        ]);   
     }
 
     /**
@@ -93,7 +95,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        
     }
 
     /**
