@@ -140,7 +140,7 @@ export default function Register() {
                         Already registered?
                     </Link>
 
-                    <PrimaryButton className="mt-3 transition-all duration-300 ease-in-out" disabled={processing || disabledBtn}>
+                    <PrimaryButton className="mt-3 transition-all duration-300 ease-in-out bg-sky-500 hover:bg-sky-300" disabled={processing || disabledBtn}>
                         Register
                     </PrimaryButton>
                 </div>

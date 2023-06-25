@@ -26,14 +26,14 @@ const CommentForm = ({ postId }) => {
 
     return (
         <>
-            <div className=" border border-zinc-600 rounded-lg py-5 px-6 shadow-lg dark:shadow-orange-400">
-                <p className=" text-lg dark:text-zinc-200 font-semibold uppercase mb-2">
+            <div className=" border-t-[1px] border-zinc-400  sm:border sm:border-zinc-600 sm:rounded-lg py-5 px-6 sm:shadow-lg sm:dark:shadow-orange-400">
+                <p className="hidden sm:block text-lg dark:text-zinc-200 font-semibold uppercase mb-2">
                     Add comment
                 </p>
                 <div>
                     <form onSubmit={submit}>
                         <textarea
-                            className=" w-full dark:bg-gray-900 rounded-md dark:text-white mb-4"
+                            className=" w-full dark:bg-gray-900 rounded-md dark:text-white mb-4 shadow-sm sm:shadow-none dark:shadow-white shadow-zinc-600"
                             value={data.content}
                             onChange={(e) => setData("content", e.target.value)}
                             rows="1"
