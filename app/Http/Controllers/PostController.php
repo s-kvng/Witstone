@@ -7,6 +7,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -29,6 +30,7 @@ class PostController extends Controller
          // Retrieve the likes count for each post
          $posts->map(function ($post) {
              $post->likesCount = $post->getLikesCountAttribute();
+             $post->commentCount = $post->getCommentCountAttribute();
              return $post;
          });
      
@@ -83,9 +85,22 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(Post $post): Response
     {
+
+        //use the load method to eager load the user and comments.user relationships
+        $post->load('user', 'comments.user')->loadCount('likes');
+
+        $post->liked = $post->likes->contains('user_id', Auth::id()); // Eager load related user and comments with their respective users
+        
+        //get total count of likes for post
+        $post->likesCount = $post->getLikesCountAttribute();
         //
+        $post->commentCount = $post->getCommentCountAttribute();
+
+        return Inertia::render('Post/PostDetail', [
+            'post' => $post
+        ]);   
     }
 
     /**
@@ -93,7 +108,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        
     }
 
     /**
