@@ -27,7 +27,12 @@ class Post extends Model
     }
 
     public function getLikesCountAttribute()
-{
-    return $this->likes()->count();
-}
+    {
+        return $this->likes()->count();
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

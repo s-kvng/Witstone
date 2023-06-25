@@ -35,6 +35,8 @@ const Card = ({ chirp }) => {
         });
     };
 
+    console.log(chirp);
+
  
 
     return (
