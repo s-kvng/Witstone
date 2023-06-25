@@ -4,7 +4,7 @@ import React from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 //components
-import Card from "@/Components/Card";
+import DetailCard from "@/Components/DetailCard";
 import CommentForm from "@/Components/CommentForm";
 
 //
@@ -23,7 +23,7 @@ const Index = ({ auth, post }) => {
 
             <div className="container mx-auto pt-28 mb-28">
                 <div className=" px-4 sm:px-0">
-                    <Card chirp={post} />
+                    <DetailCard chirp={post} />
 
                     <div className=" mb-4 dark:text-white py-2 ">
                         {post.comments.length > 0 ? (

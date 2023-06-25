@@ -1,17 +1,28 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
 import GuestLayout from '@/Layouts/GuestLayout';
+//
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
+import Checkbox from '@/Components/Checkbox';
+//
 import { Head, Link, useForm } from '@inertiajs/react';
 
 export default function Register() {
+
+    const [ disabledBtn , setDisableBtn ] = useState(true);
+
+  
+
+
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         email: '',
         password: '',
         password_confirmation: '',
+        policy : false,
     });
 
     useEffect(() => {
@@ -25,6 +36,10 @@ export default function Register() {
 
         post(route('register'));
     };
+
+    useEffect(()=>{
+        data.policy ? setDisableBtn(false) : setDisableBtn(true)
+    },[data.policy])
 
     return (
         <GuestLayout>
@@ -101,6 +116,22 @@ export default function Register() {
                     <InputError message={errors.password_confirmation} className="mt-2" />
                 </div>
 
+
+                <div className="block mt-4 mb-3 sm:mb-0">
+                    <label className="flex items-center">
+                        <Checkbox
+                            name="policy"
+                            checked={data.policy}
+                            onChange={(e) =>
+                                setData("policy", e.target.checked)
+                            }
+                        />
+                        <span className="ml-2 text-sm text-gray-600 dark:text-gray-400">
+                            Accept all terms and policies
+                        </span>
+                    </label>
+                </div>
+
                 <div className="flex flex-col-reverse mt-4 items-center justify-center gap-y-4">
                     <Link
                         href={route('login')}
@@ -109,7 +140,7 @@ export default function Register() {
                         Already registered?
                     </Link>
 
-                    <PrimaryButton className="mt-3" disabled={processing}>
+                    <PrimaryButton className="mt-3 transition-all duration-300 ease-in-out" disabled={processing || disabledBtn}>
                         Register
                     </PrimaryButton>
                 </div>
