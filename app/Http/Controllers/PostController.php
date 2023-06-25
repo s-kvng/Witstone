@@ -30,6 +30,7 @@ class PostController extends Controller
          // Retrieve the likes count for each post
          $posts->map(function ($post) {
              $post->likesCount = $post->getLikesCountAttribute();
+             $post->commentCount = $post->getCommentCountAttribute();
              return $post;
          });
      
@@ -92,8 +93,10 @@ class PostController extends Controller
 
         $post->liked = $post->likes->contains('user_id', Auth::id()); // Eager load related user and comments with their respective users
         
-        //
+        //get total count of likes for post
         $post->likesCount = $post->getLikesCountAttribute();
+        //
+        $post->commentCount = $post->getCommentCountAttribute();
 
         return Inertia::render('Post/PostDetail', [
             'post' => $post

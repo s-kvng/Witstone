@@ -10,7 +10,13 @@ import CommentForm from "@/Components/CommentForm";
 //
 import { Head } from "@inertiajs/react";
 
+//components
+import CommentCard from "@/Components/CommentCard";
+
 const Index = ({ auth, post }) => {
+
+  
+
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Post" />
@@ -23,10 +29,7 @@ const Index = ({ auth, post }) => {
                         {post.comments.length > 0 ? (
                             <ul>
                                 {post.comments.map((comment) => (
-                                    <li key={comment.id} className=" border-t-[1px] border-gray-500 px-10">
-                                        <p>{comment.content}</p>
-                                        <p className=" text-gray-600">Comment by: <span>{comment.user.name}</span></p>
-                                    </li>
+                                    <CommentCard comment={comment}/>
                                 ))}
                             </ul>
                         ) : (

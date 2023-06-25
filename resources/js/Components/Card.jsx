@@ -180,7 +180,7 @@ const Card = ({ chirp }) => {
                             />
                         </svg>
                         <span className="dark:text-zinc-400 text-zinc-600">
-                            400
+                            {chirp.commentCount}
                         </span>
                     </p>
                 </div>
