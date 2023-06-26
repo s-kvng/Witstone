@@ -24,14 +24,15 @@ export default function Authenticated({ user, header, children }) {
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Dashboard
-                                </NavLink>
-                                <NavLink href={route('posts.index')} active={route().current('post.index')}>
+                                
+                                <NavLink href={route('posts.index')} active={route().current('posts.index')}>
                                     Feed
                                 </NavLink>
-                                <NavLink href={route('posts.create')} active={route().current('post.create')}>
+                                <NavLink href={route('posts.create')} active={route().current('posts.create')}>
                                     Post
+                                </NavLink>
+                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                                    Channel
                                 </NavLink>
                             </div>
                         </div>
