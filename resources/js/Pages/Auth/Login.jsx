@@ -8,6 +8,10 @@ import TextInput from "@/Components/TextInput";
 import { Head, Link, useForm } from "@inertiajs/react";
 
 export default function Login({ status, canResetPassword }) {
+
+  
+
+
     const { data, setData, post, processing, errors, reset } = useForm({
         email: "",
         password: "",
@@ -25,6 +29,8 @@ export default function Login({ status, canResetPassword }) {
 
         post(route("login"));
     };
+
+
 
     return (
         <GuestLayout>
@@ -94,7 +100,7 @@ export default function Login({ status, canResetPassword }) {
                         </Link>
                     )}
 
-                    <PrimaryButton className="ml-4" disabled={processing}>
+                    <PrimaryButton className="ml-4 rounded-full bg-sky-400 hover:bg-sky-300"  disabled={processing}>
                         Log in
                     </PrimaryButton>
 
