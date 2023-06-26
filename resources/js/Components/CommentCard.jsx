@@ -36,7 +36,7 @@ const CommentCard = ({ comment }) => {
 
 
     const { data, setData, patch, clearErrors, reset, errors } = useForm({
-        content: comment.message,
+        content: comment.content,
     });
 
     return (
@@ -112,8 +112,8 @@ const CommentCard = ({ comment }) => {
                 {editing ? (
                     <form onSubmit={submit}>
                         <textarea
-                            value={data.content}
-                            onChange={(e) => setData("comment", e.target.value)}
+                            value={comment.content}
+                            onChange={(e) => setData("content", e.target.value)}
                             className="mt-4 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
                         ></textarea>
                         <InputError message={errors.content} className="mt-2" />
