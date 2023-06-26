@@ -35,7 +35,6 @@ const CommentForm = ({ postId }) => {
         data.content.length > 0 ? setDisable(false) : setDisable(true)
     },[data.content]);
 
-    console.log(postId);
 
     return (
         <>
@@ -46,8 +45,9 @@ const CommentForm = ({ postId }) => {
                 <div>
                     <form onSubmit={submit}>
                         <textarea
-                            className=" w-full dark:bg-gray-900 rounded-md dark:text-white mb-4 shadow-sm sm:shadow-none dark:shadow-white shadow-zinc-600"
+                            className=" w-full dark:bg-gray-900 rounded-full dark:text-white mb-4 shadow-sm sm:shadow-none dark:shadow-white shadow-zinc-600"
                             value={data.content}
+                            placeholder="Comment"
                             onChange={handleChange}
                             rows="1"
                         ></textarea>
