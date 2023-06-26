@@ -81,7 +81,7 @@ class CommentController extends Controller
 
         $comment->update($validated);
 
-        return redirect(route('posts.show'));
+        return redirect()->back();
     }
 
     /**
