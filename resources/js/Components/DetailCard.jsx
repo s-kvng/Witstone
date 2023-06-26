@@ -45,10 +45,10 @@ const DetailCard = ({ user, chirp }) => {
 
     return (
         <div className="p-6 flex space-x-2 ">
-            <div class=" h-10 w-10">
+            <div className=" h-10 w-10">
                 <img
                     src="/img/anony2.png"
-                    class="object-cover h-10 w-10 rounded-full "
+                    className="object-cover h-10 w-10 rounded-full "
                 />
             </div>
             <div className="flex-1">
