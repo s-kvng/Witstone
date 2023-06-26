@@ -15,7 +15,7 @@ import CommentCard from "@/Components/CommentCard";
 
 const Index = ({ auth, post }) => {
 
-  
+ 
 
     return (
         <AuthenticatedLayout user={auth.user}>
@@ -23,7 +23,7 @@ const Index = ({ auth, post }) => {
 
             <div className="container mx-auto pt-28 mb-28">
                 <div className=" px-4 sm:px-0">
-                    <DetailCard chirp={post} />
+                    <DetailCard user={auth.user} chirp={post} />
 
                     <div className=" mb-4 dark:text-white py-2 ">
                         {post.comments.length > 0 ? (

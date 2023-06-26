@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 //components
 import InputError from "./InputError";
@@ -18,11 +18,11 @@ import relativeTime from "dayjs/plugin/relativeTime";
 
 dayjs.extend(relativeTime);
 
-const DetailCard = ({ chirp }) => {
+const DetailCard = ({ user, chirp }) => {
     const { auth } = usePage().props;
 
     const [editing, setEditing] = useState(false);
-    // const [ likes , setLikes ] = useState(chirp.likesCount);
+    const [ liked , setLiked ] = useState(false);
 
     const { data, setData, patch, clearErrors, reset, errors } = useForm({
         message: chirp.message,
@@ -35,7 +35,23 @@ const DetailCard = ({ chirp }) => {
         });
     };
 
-    console.log(chirp);
+    console.log(user.name);
+
+   const demo = chirp.likes.find((element, index)=>{
+    return element.name === user.name;
+   })
+
+//    if(demo){
+//     console.log("found");
+//     setLiked(true)
+//    }
+//    else{
+//     console.log("Not found");
+//    }
+
+   useEffect(()=>{
+    demo ? setLiked(true) : setLiked(false)
+   }, [demo])
 
  
 
@@ -136,7 +152,7 @@ const DetailCard = ({ chirp }) => {
                             href={route("posts.like", chirp.id)}
                             method="post"
                         >
-                            {chirp.liked ? (
+                            {liked ? (
                                 <span>
                                     {" "}
                                     <IoMdHeart
