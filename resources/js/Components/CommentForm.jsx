@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 
 //components
@@ -11,18 +11,30 @@ import { useForm } from "@inertiajs/react";
 
 const CommentForm = ({ postId }) => {
 
+    const [disable , setDisable ] = useState(true)
 
     const { data, setData, post, processing, reset, errors } = useForm({
         content: '',
         post_id : postId,
     });
+
+
  
     const submit = (e) => {
         e.preventDefault();
         post(route('comment.store'), { onSuccess: () => reset() });
     };
 
-    console.log(postId);
+    const handleChange = (e) => {
+      
+            setData("content", e.target.value);
+        
+    }
+
+    useEffect(()=>{
+        data.content.length > 0 ? setDisable(false) : setDisable(true)
+    },[data.content]);
+
 
     return (
         <>
@@ -33,9 +45,10 @@ const CommentForm = ({ postId }) => {
                 <div>
                     <form onSubmit={submit}>
                         <textarea
-                            className=" w-full dark:bg-gray-900 rounded-md dark:text-white mb-4 shadow-sm sm:shadow-none dark:shadow-white shadow-zinc-600"
+                            className=" w-full dark:bg-gray-900 rounded-full dark:text-white mb-4 shadow-sm sm:shadow-none dark:shadow-white shadow-zinc-600"
                             value={data.content}
-                            onChange={(e) => setData("content", e.target.value)}
+                            placeholder="Comment"
+                            onChange={handleChange}
                             rows="1"
                         ></textarea>
                         <InputError message={errors.conent} className="mt-2" />
@@ -45,7 +58,7 @@ const CommentForm = ({ postId }) => {
                         <div className=" flex justify-end">
                             <PrimaryButton
                                 className="bg-blue-700 hover:bg-blue-500 text-black dark:bg-sky-500 dark:hover:bg-blue-400 dark:text-white"
-                                disabled={processing}
+                                disabled={processing || disable}
                             >
                                 Add
                             </PrimaryButton>

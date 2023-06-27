@@ -34,13 +34,13 @@ Route::get('/dashboard', function () {
 
 
 Route::resource('posts', PostController::class)
-    ->only(['index','create', 'store', 'destroy', 'show'])
+    ->only(['index','create', 'store', 'destroy', 'show', 'update'])
     ->middleware(['auth', 'verified']);
 
 Route::post('/posts/{post}/like', [LikedPostController::class, 'toggle'])->name('posts.like');
 
 Route::resource('comment', CommentController::class)
-    ->only(['store'])
+    ->only(['store', 'update', 'destroy'])
     ->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
