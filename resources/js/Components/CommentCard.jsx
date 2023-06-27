@@ -134,10 +134,10 @@ const CommentCard = ({ comment }) => {
                     </form>
                 ) : (
                     <p className=" mt-4 mb-3 text-lg dark:text-gray-300">
-                        <Link href={ route('posts.show', comment.id)}>
+                       
                         {comment.content}
                         
-                        </Link>
+                       
                     </p>
                 )}
 

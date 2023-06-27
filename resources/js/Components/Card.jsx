@@ -147,7 +147,7 @@ const Card = ({ chirp }) => {
                                     {" "}
                                     <IoMdHeart
                                         size={20}
-                                        className=" text-sky-600"
+                                        className=" text-sky-600 dark:text-sky-600"
                                     />
                                 </span>
                             ) : (
