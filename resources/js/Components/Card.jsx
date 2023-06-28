@@ -49,8 +49,8 @@ const Card = ({ chirp }) => {
 
     return (
         <div className="p-6 flex space-x-2 ">
-            <div class=" h-10 w-10">
-                <img src="/img/anony2.png" class="object-cover h-10 w-10 rounded-full " />
+            <div className=" h-10 w-10">
+                <img src="/img/anony2.png" className="object-cover h-10 w-10 rounded-full " />
             </div>
             <div className="flex-1">
                 <div className="flex justify-between items-center">

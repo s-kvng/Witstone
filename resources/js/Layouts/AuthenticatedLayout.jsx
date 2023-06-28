@@ -40,9 +40,10 @@ export default function Authenticated({ user, header, children }) {
                                 <NavLink href={route('posts.create')} active={route().current('posts.create')}>
                                     Post
                                 </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                                <NavLink href={route('channel')} active={route().current('channel')}>
                                     Channel
                                 </NavLink>
+                                
                             </div>
                         </div>
 
@@ -111,7 +112,7 @@ export default function Authenticated({ user, header, children }) {
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
+                        <ResponsiveNavLink href={route('channel')} active={route().current('channel')}>
                             Channel
                         </ResponsiveNavLink>
                         <ResponsiveNavLink href={route('posts.index')} active={route().current('posts.index')}>
