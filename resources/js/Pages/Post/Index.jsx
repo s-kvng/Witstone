@@ -23,8 +23,8 @@ const Index = ({ auth, posts }) => {
          <div className=" px-4 sm:px-0">
                     {posts.map((post) => (
                        <>
-                        <div className=" bg-white dark:bg-gray-800  rounded-lg drop-shadow-md">
-                         <Card key={post.id} chirp={post} />
+                        <div key={post.id} className=" bg-white dark:bg-gray-800  rounded-lg drop-shadow-md">
+                         <Card  chirp={post} />
 
                        </div>
                        <hr className="border-t border-gray-300 dark:border-gray-700 my-6"/>
