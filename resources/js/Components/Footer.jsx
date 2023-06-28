@@ -10,7 +10,7 @@ import { Link } from '@inertiajs/react';
 
 const Footer = () => {
   return (
-    <footer className=" bg-white dark:bg-gray-900 dark:text-white fixed bottom-0 left-0 right-0 opacity-95">
+    <footer className=" bg-white dark:bg-gray-900 dark:text-white fixed bottom-0 left-0 right-0 opacity-95 z-40">
         <div className='flex justify-center align-items-center md:gap-24 gap-14 py-2'>
             <div className='flex flex-col gap-y-1 align-items-center text-center'>
                 <Link href={route('posts.index')}><div className=" border border-zinc-400 rounded-full p-4"><FaHome size={34} className='text-sky-700'/></div></Link>
