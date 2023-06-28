@@ -12,6 +12,7 @@ import { useForm } from "@inertiajs/react";
 const CommentForm = ({ postId }) => {
 
     const [disable , setDisable ] = useState(true)
+    const [overFlow , setOverflow ] = useState(false)
 
     const { data, setData, post, processing, reset, errors } = useForm({
         content: '',
@@ -31,8 +32,9 @@ const CommentForm = ({ postId }) => {
         
     }
 
+    //check the number of words in the comment box 
     useEffect(()=>{
-        data.content.length > 0 ? setDisable(false) : setDisable(true)
+        data.content.length > 0 && data.content.length < 60 ? setDisable(false) : setDisable(true)
     },[data.content]);
 
 
@@ -57,7 +59,7 @@ const CommentForm = ({ postId }) => {
 
                         <div className=" flex justify-end">
                             <PrimaryButton
-                                className="bg-blue-700 hover:bg-blue-500 text-black dark:bg-sky-500 dark:hover:bg-blue-400 dark:text-white"
+                                className="bg-blue-700 hover:bg-blue-500 text-black dark:bg-sky-500 dark:hover:bg-blue-400 dark:text-white dark:hover:text-zinc-200"
                                 disabled={processing || disable}
                             >
                                 Add
