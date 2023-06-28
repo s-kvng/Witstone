@@ -30,7 +30,7 @@ export default function Index({ auth }) {
                         onChange={e => setData('message', e.target.value)}
                     ></textarea>
                     <InputError message={errors.message} className="mt-2" />
-                    <PrimaryButton className="mt-4 dark:bg-sky-700 dark:text-white dark:focus:bg-sky-600 dark:hover:bg-sky-600" disabled={processing}>Post</PrimaryButton>
+                    <PrimaryButton className="mt-4 bg-sky-500 dark:bg-sky-700 dark:text-white dark:focus:bg-sky-600 dark:hover:bg-sky-600" disabled={processing}>Post</PrimaryButton>
                 </form>
             </div>
 

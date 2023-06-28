@@ -19,6 +19,7 @@ use Inertia\Inertia;
 |
 */
 
+//
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -28,21 +29,35 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
+//
+Route::get('/channel', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('channel');
 
 
+//
+Route::get('/policy', function () {
+    return Inertia::render('Policies');
+})->middleware(['auth', 'verified'])->name('policy');
+
+
+//
 Route::resource('posts', PostController::class)
     ->only(['index','create', 'store', 'destroy', 'show', 'update'])
     ->middleware(['auth', 'verified']);
 
+
+    //
 Route::post('/posts/{post}/like', [LikedPostController::class, 'toggle'])->name('posts.like');
 
+
+//
 Route::resource('comment', CommentController::class)
     ->only(['store', 'update', 'destroy'])
     ->middleware(['auth', 'verified']);
 
+
+    //
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

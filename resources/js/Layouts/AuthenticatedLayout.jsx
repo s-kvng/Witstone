@@ -5,14 +5,23 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/react';
 
-//
+//components
 import Footer from '@/Components/Footer';
+import MoonIcon from '@/Components/ThemeIcons';
+import SunIcon from '@/Components/SunIcon';
+
+// custom hooks
+import useThemeSwitcher from '@/hooks/useThemeSwitcher';
+
 
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
+    const [mode , setMode ] = useThemeSwitcher();
+
+    console.log(mode);
 
     return (
-        <div className="h-screen bg-gray-100 dark:bg-gray-900 overflow-auto">
+        <div className="h-screen bg-gray-100 dark:bg-gray-900 overflow-auto relative">
             <nav className="bg-white fixed top-0 left-0 right-0 opacity-80 z-[999]  dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 shadow-md">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
@@ -31,9 +40,10 @@ export default function Authenticated({ user, header, children }) {
                                 <NavLink href={route('posts.create')} active={route().current('posts.create')}>
                                     Post
                                 </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                                <NavLink href={route('channel')} active={route().current('channel')}>
                                     Channel
                                 </NavLink>
+                                
                             </div>
                         </div>
 
@@ -102,8 +112,8 @@ export default function Authenticated({ user, header, children }) {
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
-                            Dashboard
+                        <ResponsiveNavLink href={route('channel')} active={route().current('channel')}>
+                            Channel
                         </ResponsiveNavLink>
                         <ResponsiveNavLink href={route('posts.index')} active={route().current('posts.index')}>
                             Feed
@@ -127,13 +137,15 @@ export default function Authenticated({ user, header, children }) {
             </nav>
 
             {header && (
-                <header className="bg-white dark:bg-gray-800 shadow">
-                    <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
+                <header className="bg-white dark:bg-gray-800 shadow mt-20">
+                    <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 uppercase">{header}</div>
                 </header>
             )}
 
             <main className=''>{children}</main>
-
+                <button onClick={()=> {setMode(mode === "light" ? "dark" : "light")}} className=' w-10 h-10 fixed top-[75%] right-[10%] p-1 flex justify-center items-center rounded-full bg-orange-500 z-50'>
+                    {mode === "dark" ? <SunIcon className={""}/>  : <MoonIcon className={" fill-gray-700/10"} />  }
+                </button>
             <Footer />
         </div>
     );
