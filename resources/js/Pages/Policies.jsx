@@ -3,7 +3,7 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 //
 import { Head } from "@inertiajs/react";
-import { Link } from "@inertiajs/react";
+
 
 //
 import { FaQuestionCircle } from "react-icons/fa";
