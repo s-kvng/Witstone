@@ -1,11 +1,13 @@
 import { Link, Head } from "@inertiajs/react";
 
+// 
+
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
             <Head title="Welcome" />
-            <div className="flex min-h-screen bg-dots-darker bg-center bg-gray-300 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-                <div className="max-w-7xl mx-auto p-6 lg:p-8 w-full   flex flex-col justify-center items-center gap-y-20">
+            <div className="flex min-h-screen dark:bg-[url('/img/bg_img.jpeg')] bg-blend-overlay bg-gray-800 bg-center selection:bg-red-500 selection:text-white">
+                <div className="max-w-7xl mx-auto p-6 lg:p-8 w-full   flex flex-col backdrop-opacity-50 justify-center items-center gap-y-[80px]">
                     <div className="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +24,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         </svg>
                     </div>
 
-                    <div className="ml-4 text-center text-6xl font-extrabold text-gray-600 dark:text-gray-400 sm:text-right sm:ml-0 uppercase">
+                    <div className="ml-4 text-center text-6xl font-extrabold text-gray-600 dark:text-gray-100 sm:text-right sm:ml-0 uppercase">
                         Welcome
                     </div>
 

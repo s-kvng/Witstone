@@ -126,7 +126,7 @@ export default function Register() {
                                 setData("policy", e.target.checked)
                             }
                         />
-                        <span className="ml-2 text-sm text-gray-600 dark:text-gray-400">
+                        <span className="ml-2 text-sm text-gray-100 dark:text-gray-400">
                             Accept all terms and policies
                         </span>
                     </label>
@@ -140,7 +140,7 @@ export default function Register() {
                         Already registered?
                     </Link>
 
-                    <PrimaryButton className="mt-3 transition-all duration-300 ease-in-out bg-sky-500 hover:bg-sky-300" disabled={processing || disabledBtn}>
+                    <PrimaryButton className="mt-3 transition-all duration-300 ease-in-out disabled:bg-slate-100 disabled:text-gray-900 bg-sky-500 hover:bg-sky-300" disabled={processing || disabledBtn}>
                         Register
                     </PrimaryButton>
                 </div>
