@@ -5,14 +5,21 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/react';
 
-//
+//components
 import Footer from '@/Components/Footer';
+import MoonIcon from '@/Components/ThemeIcons';
+import SunIcon from '@/Components/SunIcon';
+
+// custom hooks
+import useThemeSwitcher from '@/hooks/useThemeSwitcher';
+
 
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
+    const [mode , setMode ] = useThemeSwitcher();
 
     return (
-        <div className="h-screen bg-gray-100 dark:bg-gray-900 overflow-auto">
+        <div className="h-screen bg-gray-100 dark:bg-gray-900 overflow-auto relative">
             <nav className="bg-white fixed top-0 left-0 right-0 opacity-80 z-[999]  dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 shadow-md">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
@@ -133,7 +140,9 @@ export default function Authenticated({ user, header, children }) {
             )}
 
             <main className=''>{children}</main>
-
+                <button onClick={()=> {setMode(mode === "light" ? "dark" : "light")}} className=' w-7 h-7 fixed top-[75%] right-[10%] p-1 flex justify-center items-center rounded-full bg-orange-500'>
+                    {mode === "light" ? <MoonIcon className={" fill-gray-700/10"}/> : <SunIcon className={""}/>}
+                </button>
             <Footer />
         </div>
     );

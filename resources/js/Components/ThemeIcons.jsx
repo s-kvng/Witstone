@@ -1,15 +1,15 @@
 
 
-export const MoonIcon = ({ className, ...rest }) => (
+const MoonIcon = ({ className, ...rest }) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width="10"
+      height="10"
       viewBox="0 0 24 24"
       {...rest}
       className={`w-full h-auto ${className}`}
     >
-      <rect x="0" y="0" width="24" height="24" fill="rgba(255, 255, 255, 0)" />
+      <rect x="0" y="0" width="10" height="24" fill="rgba(255, 255, 255, 0)" />
       <g
         fill="none"
         stroke="currentColor"
@@ -157,3 +157,4 @@ export const MoonIcon = ({ className, ...rest }) => (
   );
 
   
+  export default MoonIcon;
