@@ -29,7 +29,7 @@ const Index = ({ auth, post }) => {
                         {post.comments.length > 0 ? (
                             <ul>
                                 {post.comments.map((comment) => (
-                                    <CommentCard comment={comment}/>
+                                    <CommentCard comment={comment} />
                                 ))}
                             </ul>
                         ) : (
