@@ -13,8 +13,7 @@ import { Head, Link, useForm } from '@inertiajs/react';
 export default function Register() {
 
     const [ disabledBtn , setDisableBtn ] = useState(true);
-
-  
+    const [ userTextVisible , setUserTextVisible] = useState(false); 
 
 
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -41,6 +40,10 @@ export default function Register() {
         data.policy ? setDisableBtn(false) : setDisableBtn(true)
     },[data.policy])
 
+    useEffect(()=>{
+        data.name.length > 3 && data.name.length < 10 ? setUserTextVisible(true) : setUserTextVisible(false) 
+    }, [data.name]);
+
     return (
         <GuestLayout>
             <Head title="Register" />
@@ -60,7 +63,7 @@ export default function Register() {
                         onChange={(e) => setData('name', e.target.value)}
                         required
                     />
-
+                    <p className={`text-gray-300 text-[14px] mt-2 ${userTextVisible ? "block" : "hidden"}`}>Enter anonymous Username eg: user@5$#</p>
                     <InputError message={errors.name} className="mt-2" />
                 </div>
 
@@ -116,12 +119,14 @@ export default function Register() {
                     <InputError message={errors.password_confirmation} className="mt-2" />
                 </div>
 
+                <div className=' text-gray-300 my-2'>Click here to view terms and policies</div>
 
-                <div className="block mt-4 mb-3 sm:mb-0">
+                <div className="block mt-2 mb-3 sm:mb-0">
                     <label className="flex items-center">
                         <Checkbox
                             name="policy"
                             checked={data.policy}
+                            className=' peer'
                             onChange={(e) =>
                                 setData("policy", e.target.checked)
                             }
@@ -129,6 +134,8 @@ export default function Register() {
                         <span className="ml-2 text-sm text-gray-100 dark:text-gray-400">
                             Accept all terms and policies
                         </span>
+                        <br/>
+                       
                     </label>
                 </div>
 
