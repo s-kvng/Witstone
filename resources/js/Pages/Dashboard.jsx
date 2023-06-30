@@ -9,7 +9,7 @@ import { Head } from '@inertiajs/react';
 import { Link } from '@inertiajs/react';
 
 //
-import { FaQuestionCircle } from 'react-icons/fa';
+import { FaQuestionCircle, FaGoogle } from 'react-icons/fa';
 
 //
 import QuestionsModal from '@/Components/QuestionsModal';
@@ -103,9 +103,9 @@ export default function Dashboard({ auth }) {
                         <h2 className=' text-2xl font-bold dark:text-gray-200 pb-2'><span>&#128220; </span>About us</h2>
                         <p className=' text-lg text-gray-500 p-2 pb-3'>Visit our social pages for more info on our development team</p>
                         <div className=' flex justify-center items-center gap-5  py-3 px-2'>
-                            <Link><GithubIcon /></Link>
-                            <Link><TwitterIcon/></Link>
-                            <Link><LinkedInIcon/></Link>
+                            <Link href='https://github.com/PyCode-Camp'><GithubIcon /></Link>
+                            <Link href='#'><TwitterIcon/></Link>
+                            <Link href='https://github.com/PyCode-Camphttps://www.linkedin.com/company/pycode-camp/'><LinkedInIcon/></Link>
                             
                         </div>
                     </div>
@@ -118,16 +118,18 @@ export default function Dashboard({ auth }) {
                     <div className=' flex flex-col items-center justify-center'>
                         <div>
                         <h2 className=' text-2xl font-bold dark:text-gray-200 pb-2 text-center uppercase'><span>&#128220; </span>Contribution</h2>
-                        <p className=' text-lg text-gray-500 p-2'> To sponser or donate to the Pycode team </p>
-                        <p className='p-2 dark:text-gray-300'>Send to : <span>0558218741</span></p>
+                        <p className=' text-lg text-gray-500 p-2'><span class="emoji">&#x1F4B0;</span> To sponser or donate to the Pycode team </p>
+                        <p className='p-2 dark:text-gray-300'><span class="emoji">&#x1F4F2;</span>Send to : <span>0558218741</span></p>
                         </div>
                         <div className='py-2'>
                             <h2 className='font-bold uppercase text-lg dark:text-gray-200 py-2'><span>&#x1F468;&#x200D;&#x1F4BB; </span>Technical Support</h2>
                             <div className='px-2'>
-                            <p className='dark:text-gray-400 mb-2'>Found a bug ?</p>
+                            <p className='dark:text-gray-400 mb-2'><span class="emoji">&#x1F9A0;</span>Found a bug ?</p>
                             <p className=' dark:text-gray-400'>Want to contribute to adding a new feature ?</p>
                             </div>
-                            <p>icon</p>
+                            <div className=' flex justify-center items-center '>
+                            <a href='https://pycodecamp47@gmail.com' target={'_blank'}><FaGoogle size={30}  className='text-red-500' /></a>
+                            </div>
                             
                         </div>
                        
