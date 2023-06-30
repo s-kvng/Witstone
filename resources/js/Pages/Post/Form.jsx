@@ -16,7 +16,7 @@ export default function Index({ auth }) {
  
     return (
         <AuthenticatedLayout user={auth.user}>
-            <Head title="Chirps" />
+            <Head title="Post" />
  
             <div className=' pt-28'>
 

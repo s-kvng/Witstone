@@ -100,7 +100,7 @@ const CommentCard = ({ comment }) => {
                                 </button>
                                 <Dropdown.Link
                                     as="button"
-                                    href={route("posts.destroy", comment.id)}
+                                    href={route("comment.destroy", comment.id)}
                                     method="delete"
                                 >
                                     Delete

@@ -143,7 +143,7 @@ export default function Authenticated({ user, header, children }) {
             )}
 
             <main className=''>{children}</main>
-                <button onClick={()=> {setMode(mode === "light" ? "dark" : "light")}} className=' w-10 h-10 fixed top-[75%] right-[10%] p-1 flex justify-center items-center rounded-full bg-orange-500 z-50'>
+                <button onClick={()=> {setMode(mode === "light" ? "dark" : "light")}} className=' w-10 h-10 fixed sm:top-[75%] top-[85%] right-[10%] p-1 flex justify-center items-center rounded-full bg-orange-500 z-50'>
                     {mode === "dark" ? <SunIcon className={""}/>  : <MoonIcon className={" fill-gray-700/10"} />  }
                 </button>
             <Footer />
