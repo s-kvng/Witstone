@@ -1,24 +1,17 @@
-//layouts
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import React from 'react';
 
 //
-import { Head, Link } from "@inertiajs/react";
+import PolicyModal from './PolicyModal';
 
+import { FaCheck, FaGoogle } from "react-icons/fa";
+import { Link } from '@inertiajs/react';
 
-//
-import { FaGoogle } from 'react-icons/fa';
-//
-import { FaQuestionCircle, FaCheck } from "react-icons/fa";
+const Policy = ({ show , onClose }) => {
+  return (
+    <>
+         <PolicyModal show={show} onClose={onClose}>
 
-export default function Policies({ auth }) {
-    return (
-        <AuthenticatedLayout
-            user={auth.user}
-            // header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Dashboard</h2>}
-        >
-            <Head title="Policies" />
-
-            <div className=" py-20 sm:pt-28">
+         <div className=" p-3">
                 <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-10 dark:text-gray-300">
                 <h2 className="text-2xl font-bold pb-2">User Anonymity</h2>
 
@@ -49,7 +42,7 @@ export default function Policies({ auth }) {
 
                 This website may retain and provide user information to legal authorities if required by law or to protect the safety and rights of others.
 
-                <h2 className="text-lg font-semibold py-2">Data Privacy</h2>
+                {/* <h2 className="text-lg font-semibold py-2">Data Privacy</h2>
 
                 Personal information will be handled securely and in accordance with applicable data protection laws.
 
@@ -75,13 +68,19 @@ export default function Policies({ auth }) {
 
                 <h2 className="text-lg font-semibold py-2">Contact Information</h2>
 
-                <p>Contact details are provided for users to reach out with inquiries, concerns, or requests related to the policy.</p>
+                <p>Contact details are provided for users to reach out with inquiries, concerns, or requests related to the policy.</p> */}
 
                 <div className=" flex justify-center items-center">
-                <Link href="pycodecamp47@gmail.com" target={`_blank`} > <FaGoogle size={30}  className=" text-red-500 " /> </Link>
+                <Link href="#" target={`_blank`} > <FaGoogle size={30}  className=" text-red-500 " /> </Link>
                 </div>
                 </div>
             </div>
-        </AuthenticatedLayout>
-    );
+                    
+
+        </PolicyModal>
+    
+    </>
+  )
 }
+
+export default Policy

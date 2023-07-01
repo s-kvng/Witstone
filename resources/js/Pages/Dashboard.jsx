@@ -104,8 +104,8 @@ export default function Dashboard({ auth }) {
                         <p className=' text-lg text-gray-500 p-2 pb-3'>Visit our social pages for more info on our development team</p>
                         <div className=' flex justify-center items-center gap-5  py-3 px-2'>
                             <Link href='https://github.com/PyCode-Camp'><GithubIcon /></Link>
-                            <Link href='#'><TwitterIcon/></Link>
-                            <Link href='https://github.com/PyCode-Camphttps://www.linkedin.com/company/pycode-camp/'><LinkedInIcon/></Link>
+                            <Link href='https://twitter.com/py_camp1'><TwitterIcon/></Link>
+                            <Link href='https://www.linkedin.com/company/pycode-camp/'><LinkedInIcon/></Link>
                             
                         </div>
                     </div>
@@ -128,7 +128,7 @@ export default function Dashboard({ auth }) {
                             <p className=' dark:text-gray-400'>Want to contribute to adding a new feature ?</p>
                             </div>
                             <div className=' flex justify-center items-center '>
-                            <a href='https://pycodecamp47@gmail.com' target={'_blank'}><FaGoogle size={30}  className='text-red-500' /></a>
+                            <a href='pycodecamp47@gmail.com' target={'_blank'}><FaGoogle size={30}  className='text-red-500' /></a>
                             </div>
                             
                         </div>

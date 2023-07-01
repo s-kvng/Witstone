@@ -1,19 +1,27 @@
 import { useEffect, useState } from 'react';
 
 import GuestLayout from '@/Layouts/GuestLayout';
-//
+//components
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import Checkbox from '@/Components/Checkbox';
+import Policy from '@/Components/Policy';
+
+
 //
 import { Head, Link, useForm } from '@inertiajs/react';
+
+import { FaArrowRight } from 'react-icons/fa';
+
+
 
 export default function Register() {
 
     const [ disabledBtn , setDisableBtn ] = useState(true);
-    const [ userTextVisible , setUserTextVisible] = useState(false); 
+    const [ userTextVisible , setUserTextVisible] = useState(false);
+    const [ openModal , setOpenModal ] = useState(false); 
 
 
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -43,6 +51,19 @@ export default function Register() {
     useEffect(()=>{
         data.name.length > 3 && data.name.length < 10 ? setUserTextVisible(true) : setUserTextVisible(false) 
     }, [data.name]);
+
+
+    //
+    const handleClick = (e) =>{
+        e.preventDefault();
+
+        setOpenModal(true);
+
+    }
+
+    const closePolicyModal = (e) =>{
+        setOpenModal(false);
+    }
 
     return (
         <GuestLayout>
@@ -119,7 +140,7 @@ export default function Register() {
                     <InputError message={errors.password_confirmation} className="mt-2" />
                 </div>
 
-                <div className=' text-gray-300 my-2'>Click here to view terms and policies</div>
+                <Link href='#' onClick={handleClick} className=' flex items-center gap-x-3'> <FaArrowRight className='text-blue-600'/> <div className=' text-sky-500 my-2 capitalize'>View terms and policies</div></Link>
 
                 <div className="block mt-2 mb-3 sm:mb-0">
                     <label className="flex items-center">
@@ -152,6 +173,9 @@ export default function Register() {
                     </PrimaryButton>
                 </div>
             </form>
+
+           <Policy  show={openModal} onClose={closePolicyModal} />
+
         </GuestLayout>
     );
 }
