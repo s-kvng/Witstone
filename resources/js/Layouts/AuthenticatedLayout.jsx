@@ -21,7 +21,7 @@ export default function Authenticated({ user, header, children }) {
     console.log(mode);
 
     return (
-        <div className="h-screen bg-gray-100 dark:bg-gray-900 overflow-auto relative">
+        <div className="h-screen bg-gradient-to-r from-gray-100 to-gray-200 dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-950 overflow-auto relative">
             <nav className="bg-white fixed top-0 left-0 right-0 opacity-80 z-[999]  dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 shadow-md">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">

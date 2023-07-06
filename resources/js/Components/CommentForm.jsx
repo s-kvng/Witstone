@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-
 //components
 import InputError from "@/Components/InputError";
 import PrimaryButton from "@/Components/PrimaryButton";
@@ -8,35 +7,30 @@ import PrimaryButton from "@/Components/PrimaryButton";
 //
 import { useForm } from "@inertiajs/react";
 
-
 const CommentForm = ({ postId }) => {
-
-    const [disable , setDisable ] = useState(true)
-    const [overFlow , setOverflow ] = useState(false)
+    const [disable, setDisable] = useState(true);
+    const [overFlow, setOverflow] = useState(false);
 
     const { data, setData, post, processing, reset, errors } = useForm({
-        content: '',
-        post_id : postId,
+        content: "",
+        post_id: postId,
     });
 
-
- 
     const submit = (e) => {
         e.preventDefault();
-        post(route('comment.store'), { onSuccess: () => reset() });
+        post(route("comment.store"), { onSuccess: () => reset() });
     };
 
     const handleChange = (e) => {
-      
-            setData("content", e.target.value);
-        
-    }
+        setData("content", e.target.value);
+    };
 
-    //check the number of words in the comment box 
-    useEffect(()=>{
-        data.content.length > 0 && data.content.length < 60 ? setDisable(false) : setDisable(true)
-    },[data.content]);
-
+    //check the number of words in the comment box
+    useEffect(() => {
+        data.content.length > 0 && data.content.length < 60
+            ? setDisable(false)
+            : setDisable(true);
+    }, [data.content]);
 
     return (
         <>
@@ -47,7 +41,8 @@ const CommentForm = ({ postId }) => {
                 <div>
                     <form onSubmit={submit}>
                         <textarea
-                            className=" w-full dark:bg-gray-900 sm:placeholder:text-transparent rounded-full dark:text-white mb-4 shadow-sm sm:shadow-none dark:shadow-white shadow-zinc-600"
+                            className=" w-full dark:bg-gray-900 sm:placeholder:text-transparent rounded-full 
+                            dark:text-white mb-4 shadow-sm sm:shadow-none dark:shadow-white shadow-zinc-600"
                             value={data.content}
                             placeholder="Comment..."
                             onChange={handleChange}
@@ -55,7 +50,7 @@ const CommentForm = ({ postId }) => {
                         ></textarea>
                         <InputError message={errors.conent} className="mt-2" />
 
-                        <input type="hidden" name="post_id" value={ postId }/>
+                        <input type="hidden" name="post_id" value={postId} />
 
                         <div className=" flex justify-end">
                             <PrimaryButton

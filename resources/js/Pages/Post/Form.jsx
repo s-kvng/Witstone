@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 import { useForm, Head } from '@inertiajs/react';
  
 export default function Index({ auth }) {
+    
+    const [disable, setDisable] = useState(false);
+
     const { data, setData, post, processing, reset, errors } = useForm({
         message: '',
     });
@@ -13,6 +16,11 @@ export default function Index({ auth }) {
         e.preventDefault();
         post(route('posts.store'), { onSuccess: () => reset() });
     };
+
+    //disable btn if user types more than 255 words
+    useEffect(()=>{
+        data.message.length > 255 ? setDisable(true) : setDisable(false)
+    }, [data.message]);
  
     return (
         <AuthenticatedLayout user={auth.user}>
@@ -30,7 +38,7 @@ export default function Index({ auth }) {
                         onChange={e => setData('message', e.target.value)}
                     ></textarea>
                     <InputError message={errors.message} className="mt-2" />
-                    <PrimaryButton className="mt-4 bg-sky-500 dark:bg-sky-700 dark:text-white dark:focus:bg-sky-600 dark:hover:bg-sky-600" disabled={processing}>Post</PrimaryButton>
+                    <PrimaryButton className="mt-4 bg-sky-500 dark:bg-sky-700 dark:text-white dark:focus:bg-sky-600 dark:hover:bg-sky-600" disabled={processing || disable}>Post</PrimaryButton>
                 </form>
             </div>
 
