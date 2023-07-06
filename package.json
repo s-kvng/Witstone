@@ -3,7 +3,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "test": "react-scripts test"
     },
     "devDependencies": {
         "@headlessui/react": "^1.4.2",
@@ -20,6 +21,9 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^14.0.0",
+        "@testing-library/user-event": "^14.4.3",
         "dayjs": "^1.11.8",
         "react-icons": "^4.9.0"
     }

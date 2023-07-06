@@ -71,7 +71,7 @@ const Policy = ({ show , onClose }) => {
                 <p>Contact details are provided for users to reach out with inquiries, concerns, or requests related to the policy.</p> */}
 
                 <div className=" flex justify-center items-center">
-                <Link href="#" target={`_blank`} > <FaGoogle size={30}  className=" text-red-500 " /> </Link>
+                <Link href="pycodecamp47@gmail.com" target={`_blank`} > <FaGoogle size={30}  className=" text-red-500 " /> </Link>
                 </div>
                 </div>
             </div>

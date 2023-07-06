@@ -1,14 +1,11 @@
 //layouts
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-
 //
 import { Head, Link } from "@inertiajs/react";
-
-
 //
 import { FaGoogle } from 'react-icons/fa';
 //
-import { FaQuestionCircle, FaCheck } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa";
 
 export default function Policies({ auth }) {
     return (
