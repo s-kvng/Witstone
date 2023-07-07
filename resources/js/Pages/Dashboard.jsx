@@ -1,23 +1,16 @@
 //layouts
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 
-//
 import { useState } from 'react';
 
-//
 import { Head } from '@inertiajs/react';
 import { Link } from '@inertiajs/react';
 
-//
 import { FaQuestionCircle, FaGoogle } from 'react-icons/fa';
 
-//
 import QuestionsModal from '@/Components/QuestionsModal';
 import ContributionModal from '@/Components/ContributionModal';
-
-//
 import { GithubIcon, TwitterIcon, LinkedInIcon } from '@/Components/SocialIcons';
-
 
 
 export default function Dashboard({ auth }) {
@@ -128,7 +121,7 @@ export default function Dashboard({ auth }) {
                             <p className=' dark:text-gray-400'>Want to contribute to adding a new feature ?</p>
                             </div>
                             <div className=' flex justify-center items-center '>
-                            <a href='pycodecamp47@gmail.com' target={'_blank'}><FaGoogle size={30}  className='text-red-500' /></a>
+                            <a href='mailto:your-email@example.com?subject=Regarding%20your%20app' target={'_blank'}><FaGoogle size={30}  className='text-red-500' /></a>
                             </div>
                             
                         </div>
