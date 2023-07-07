@@ -121,7 +121,7 @@ export default function Dashboard({ auth }) {
                             <p className=' dark:text-gray-400'>Want to contribute to adding a new feature ?</p>
                             </div>
                             <div className=' flex justify-center items-center '>
-                            <a href='pycodecamp47@gmail.com' target={'_blank'}><FaGoogle size={30}  className='text-red-500' /></a>
+                            <a href='mailto:your-email@example.com?subject=Regarding%20your%20app' target={'_blank'}><FaGoogle size={30}  className='text-red-500' /></a>
                             </div>
                             
                         </div>
