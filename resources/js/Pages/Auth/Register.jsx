@@ -105,7 +105,7 @@ export default function Register() {
                     <InputError message={errors.email} className="mt-2" />
                 </div>
 
-                <div className="sm:mt-6 mt-8 ">
+                <div className="sm:mt-6 mt-8 relative">
                    
 
                     <TextInput
@@ -121,9 +121,10 @@ export default function Register() {
                     />
 
                     <InputError message={errors.password} className="mt-2" />
+                    <div className="absolute top-2 right-6 text-white">i</div>
                 </div>
 
-                <div className="sm:mt-6 mt-8">
+                <div className="sm:mt-6 mt-8 relative">
                    
                     <TextInput
                         id="password_confirmation"
@@ -138,6 +139,7 @@ export default function Register() {
                     />
 
                     <InputError message={errors.password_confirmation} className="mt-2" />
+                    <div className="absolute top-2 right-6 text-white">i</div>
                 </div>
 
                 <Link href='#' onClick={handleClick} className=' flex items-center gap-x-3'> <FaArrowRight className='text-blue-600'/> <div className=' text-sky-500 my-2 capitalize'>View terms and policies</div></Link>

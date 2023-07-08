@@ -43,23 +43,24 @@ export default function Login({ status, canResetPassword }) {
             )}
 
             <form onSubmit={submit} className="mt-8 sm:mt-0">
-                <div>
+                <div className="">
                     <TextInput
                         id="email"
                         type="email"
                         name="email"
                         placeholder="Email"
                         value={data.email}
-                        className="mt-1 block w-full "
+                        className="mt-1 block w-full"
                         autoComplete="username"
                         isFocused={true}
                         onChange={(e) => setData("email", e.target.value)}
                     />
 
                     <InputError message={errors.email} className="mt-2" />
+                   
                 </div>
 
-                <div className="mt-7">
+                <div className="mt-7 relative">
                     <TextInput
                         id="password"
                         type="password"
@@ -72,6 +73,7 @@ export default function Login({ status, canResetPassword }) {
                     />
 
                     <InputError message={errors.password} className="mt-2" />
+                    <div className="absolute top-2 right-6 text-white">i</div>
                 </div>
 
                 <div className="block mt-4 mb-3 sm:mb-0">

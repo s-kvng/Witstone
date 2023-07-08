@@ -17,6 +17,7 @@ export default function Dashboard({ auth }) {
 
     const [ openQuestionModal , setOpenQuestionModal ] = useState(false);
     const [ openContributionModal , setOpenContributionModal ] = useState(false)
+    const [ loading , setLoading ] = useState(true)
 
     const openingModel = (e) => {
 

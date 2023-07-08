@@ -131,15 +131,15 @@ const DetailCard = ({ user, chirp }) => {
                             method="post"
                         >
                              <span
-                                className={`${liked ? 'animate-pulse' : ''}`}
+                                className={`${liked ? '' : ''}`}
                             >
                                 {" "}
                                 <IoMdHeart
                                     size={20}
                                     className={
                                         liked
-                                            ? " text-sky-600 dark:text-sky-600 transition-transform duration-300 transform scale-110"
-                                            : "transition-transform duration-300"
+                                            ? " text-sky-600 dark:text-sky-600 animate-pulse transition-all ease-in duration-600 transform scale-110"
+                                            : "transition-all ease-out duration-600"
                                     }
                                 />
                             </span>

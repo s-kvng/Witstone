@@ -148,15 +148,15 @@ const Card = ({ chirp }) => {
                             method="post"
                         >
                             <span
-                                className={`${chirp.liked ? 'animate-pulse' : ''}`}
+                                className={`${chirp.liked ? 'transform scale-160' : ''}`}
                             >
                                 {" "}
                                 <IoMdHeart
                                     size={20}
                                     className={
                                         chirp.liked
-                                            ? " text-sky-600 dark:text-sky-600 transition-transform duration-300 transform scale-110"
-                                            : "transition-transform duration-300"
+                                            ? " text-sky-600 dark:text-sky-600 animate-pulse transition-all ease-in-out duration-1000 transform scale-110 "
+                                            : "transition-all ease-in-out duration-700"
                                     }
                                 />
                             </span>
