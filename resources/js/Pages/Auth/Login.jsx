@@ -1,16 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Checkbox from "@/Components/Checkbox";
 import GuestLayout from "@/Layouts/GuestLayout";
 import InputError from "@/Components/InputError";
-import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import { Head, Link, useForm } from "@inertiajs/react";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+
+
 
 export default function Login({ status, canResetPassword }) {
-
-  
-
+    const [showPassword, setShowPassword] = useState(false);
 
     const { data, setData, post, processing, errors, reset } = useForm({
         email: "",
@@ -29,6 +29,10 @@ export default function Login({ status, canResetPassword }) {
 
         post(route("login"));
     };
+
+    const handleTogglePassword = () => {
+        setShowPassword(!showPassword);
+      };
 
 
 
@@ -63,7 +67,7 @@ export default function Login({ status, canResetPassword }) {
                 <div className="mt-7 relative">
                     <TextInput
                         id="password"
-                        type="password"
+                        type={showPassword ? 'text' : 'password'}
                         name="password"
                         placeholder="Password"
                         value={data.password}
@@ -73,7 +77,7 @@ export default function Login({ status, canResetPassword }) {
                     />
 
                     <InputError message={errors.password} className="mt-2" />
-                    <div className="absolute top-2 right-6 text-white">i</div>
+                    <div className="absolute top-2 right-6 text-dark dark:text-gray-300 cursor-pointer" onClick={handleTogglePassword} >{showPassword ? <FaEyeSlash size={24} /> : <FaEye size={24} />}</div>
                 </div>
 
                 <div className="block mt-4 mb-3 sm:mb-0">
