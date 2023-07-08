@@ -46,7 +46,7 @@ export default function Login({ status, canResetPassword }) {
                 </div>
             )}
 
-            <form onSubmit={submit} className="mt-8 sm:mt-0">
+            <form onSubmit={submit} className="mt-[30vh] pt-7 sm:mt-[15vh] ">
                 <div className="">
                     <TextInput
                         id="email"
@@ -96,24 +96,24 @@ export default function Login({ status, canResetPassword }) {
                 </div>
 
                 {/* links & button */}
-                <div className="flex flex-col-reverse items-center justify-end mt-4">
+                <div className="flex flex-col-reverse items-center justify-center mt-4">
                     {canResetPassword && (
                         <Link
                             href={route("password.request")}
-                            className="py-4 underline text-sm text-blue-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                            className="py-4 underline text-sm text-blue-600 dark:text-blue-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                         >
                             Forgot your password?
                         </Link>
                     )}
 
-                    <PrimaryButton className="ml-4 rounded-full bg-sky-400 hover:bg-sky-300"  disabled={processing}>
+                    <PrimaryButton className="ml-4 !px-6 !rounded-full bg-sky-400 hover:bg-sky-300"  disabled={processing}>
                         Log in
                     </PrimaryButton>
 
                    
                 </div>
 
-                <div className=" dark:text-white text-white">
+                    <div className=" dark:text-white text-white flex flex-col justify-center items-center gap-y-1">
                         Dont have an account ? 
                         <span className=" ms-2">
                             <Link

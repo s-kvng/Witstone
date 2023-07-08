@@ -80,7 +80,7 @@ export default function Register() {
         <GuestLayout>
             <Head title="Register" />
 
-            <form onSubmit={submit}>
+            <form onSubmit={submit} className=' mt-[26vh] pt-5 sm:pt-6'>
                 <div>
                    
 
@@ -89,7 +89,7 @@ export default function Register() {
                         name="name"
                         value={data.name}
                         placeholder="userName"
-                        className="mt-1 block w-full"
+                        className=" block w-full"
                         autoComplete="name"
                         isFocused={true}
                         onChange={(e) => setData('name', e.target.value)}
@@ -99,7 +99,7 @@ export default function Register() {
                     <InputError message={errors.name} className="mt-2" />
                 </div>
 
-                <div className="sm:mt-6 mt-8">
+                <div className="sm:mt-6 mt-5">
                     
                     <TextInput
                         id="email"
@@ -116,7 +116,7 @@ export default function Register() {
                     <InputError message={errors.email} className="mt-2" />
                 </div>
 
-                <div className="sm:mt-6 mt-8 relative">
+                <div className="sm:mt-6 mt-5 relative">
                    
 
                     <TextInput
@@ -135,7 +135,7 @@ export default function Register() {
                     <div className="absolute top-2 right-6 text-dark dark:text-gray-300 cursor-pointer" onClick={handleTogglePassword}>{showPassword ? <FaEyeSlash size={24} /> : <FaEye size={24} />}</div>
                 </div>
 
-                <div className="sm:mt-6 mt-8 relative">
+                <div className="sm:mt-6 mt-5 relative">
                    
                     <TextInput
                         id="password_confirmation"
