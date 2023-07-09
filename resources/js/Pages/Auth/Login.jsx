@@ -9,6 +9,8 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 
+
+
 export default function Login({ status, canResetPassword }) {
     const [showPassword, setShowPassword] = useState(false);
 
@@ -37,7 +39,8 @@ export default function Login({ status, canResetPassword }) {
 
 
     return (
-        <GuestLayout>
+       <>
+             <GuestLayout>
             <Head title="Log in" />
 
             {status && (
@@ -54,7 +57,7 @@ export default function Login({ status, canResetPassword }) {
                         name="email"
                         placeholder="Email"
                         value={data.email}
-                        className="mt-1 block w-full"
+                        className="mt-1 block w-full te"
                         autoComplete="username"
                         isFocused={true}
                         onChange={(e) => setData("email", e.target.value)}
@@ -125,6 +128,10 @@ export default function Login({ status, canResetPassword }) {
                         </span>
                     </div>
             </form>
+            
         </GuestLayout>
+        
+        
+       </>
     );
 }
