@@ -23,7 +23,7 @@ export default function Guest({ children }) {
 
             {isLoading ? (
                 
-                <div className=" h-screen bg-blue-600 flex justify-center items-center transition-all ease-in-out duration-200">
+                <div className=" h-screen bg-black flex justify-center items-center transition-all ease-in-out duration-200">
                     <div className="loader">
                     </div>
                 </div>
