@@ -35,7 +35,7 @@ export default function Authenticated({ user, header, children }) {
     return (
         <>
             {isLoading ? (
-                <div className=" h-screen bg-black flex justify-center items-center transition-all ease-in-out duration-200">
+                <div className="fixed inset-0 flex justify-center items-center bg-gray-900/10 dark:bg-gray-800 opacity-100 transition-opacity ease-in duration-500">
                     <div className="loader">
                     </div>
                 </div>
@@ -47,7 +47,7 @@ export default function Authenticated({ user, header, children }) {
                                 <div className="flex">
                                     <div className="shrink-0 flex items-center">
                                         <Link href="/">
-                                            <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                                            <ApplicationLogo className="block w-20 h-20 absolute top-0" />
                                         </Link>
                                     </div>
 
@@ -229,7 +229,7 @@ export default function Authenticated({ user, header, children }) {
                         onClick={() => {
                             setMode(mode === "light" ? "dark" : "light");
                         }}
-                        className=" w-10 h-10 fixed sm:top-[75%] top-[85%] right-[10%] p-1 flex justify-center items-center rounded-full bg-orange-500 z-50"
+                        className=" w-10 h-10 fixed sm:top-[75%] top-[85%] right-[10%] p-1 flex justify-center items-center rounded-full bg-sky-400 z-50"
                     >
                         {mode === "dark" ? (
                             <SunIcon className={""} />

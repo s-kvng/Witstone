@@ -138,8 +138,8 @@ const DetailCard = ({ user, chirp }) => {
                                     size={20}
                                     className={
                                         liked
-                                            ? " text-sky-600 dark:text-sky-600 animate-pulse transition-all ease-in-out duration-800 transform scale-110"
-                                            : "transition-all ease-in-out duration-800"
+                                            ? " text-sky-600 dark:text-sky-600 animate-pulse transition-all ease-in-out duration-500 transform scale-110"
+                                            : "transition-all ease-in-out duration-500"
                                     }
                                 />
                             </span>
