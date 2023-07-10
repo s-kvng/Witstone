@@ -130,20 +130,19 @@ const DetailCard = ({ user, chirp }) => {
                             href={route("posts.like", chirp.id)}
                             method="post"
                         >
-                            {liked ? (
-                                <span>
-                                    {" "}
-                                    <IoMdHeart
-                                        size={20}
-                                        className=" text-sky-600"
-                                    />
-                                </span>
-                            ) : (
-                                <span>
-                                    {" "}
-                                    <IoMdHeart size={20} className="" />
-                                </span>
-                            )}
+                             <span
+                                className={`${liked ? '' : ''}`}
+                            >
+                                {" "}
+                                <IoMdHeart
+                                    size={20}
+                                    className={
+                                        liked
+                                            ? " text-sky-600 dark:text-sky-600 animate-pulse transition-all ease-in-out duration-800 transform scale-110"
+                                            : "transition-all ease-in-out duration-800"
+                                    }
+                                />
+                            </span>
                         </Link>
                         <span className=" dark:text-zinc-400 text-zinc-600">
                             {chirp.likesCount}

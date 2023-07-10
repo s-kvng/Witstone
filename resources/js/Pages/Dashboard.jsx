@@ -17,6 +17,7 @@ export default function Dashboard({ auth }) {
 
     const [ openQuestionModal , setOpenQuestionModal ] = useState(false);
     const [ openContributionModal , setOpenContributionModal ] = useState(false)
+    const [ loading , setLoading ] = useState(true)
 
     const openingModel = (e) => {
 
@@ -121,7 +122,7 @@ export default function Dashboard({ auth }) {
                             <p className=' dark:text-gray-400'>Want to contribute to adding a new feature ?</p>
                             </div>
                             <div className=' flex justify-center items-center '>
-                            <a href='mailto:your-email@example.com?subject=Regarding%20your%20app' target={'_blank'}><FaGoogle size={30}  className='text-red-500' /></a>
+                            <a href='mailto:pycodecamp47@gmail.com?subject=Regarding%20your%20app' target={'_blank'}><FaGoogle size={30}  className='text-red-500' /></a>
                             </div>
                             
                         </div>

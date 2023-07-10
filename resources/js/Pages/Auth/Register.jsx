@@ -8,6 +8,7 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import Checkbox from '@/Components/Checkbox';
 import Policy from '@/Components/Policy';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 //
@@ -22,6 +23,8 @@ export default function Register() {
     const [ disabledBtn , setDisableBtn ] = useState(true);
     const [ userTextVisible , setUserTextVisible] = useState(false);
     const [ openModal , setOpenModal ] = useState(false); 
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
 
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -65,11 +68,19 @@ export default function Register() {
         setOpenModal(false);
     }
 
+    const handleTogglePassword = () => {
+        setShowPassword(!showPassword);
+      };
+
+      const handleToggleConfrimPassword = () => {
+        setShowConfirmPassword(!showConfirmPassword);
+      };
+
     return (
         <GuestLayout>
             <Head title="Register" />
 
-            <form onSubmit={submit}>
+            <form onSubmit={submit} className=' mt-[26vh] pt-5 sm:pt-6'>
                 <div>
                    
 
@@ -78,7 +89,7 @@ export default function Register() {
                         name="name"
                         value={data.name}
                         placeholder="userName"
-                        className="mt-1 block w-full"
+                        className=" block w-full"
                         autoComplete="name"
                         isFocused={true}
                         onChange={(e) => setData('name', e.target.value)}
@@ -88,7 +99,7 @@ export default function Register() {
                     <InputError message={errors.name} className="mt-2" />
                 </div>
 
-                <div className="sm:mt-6 mt-8">
+                <div className="sm:mt-6 mt-5">
                     
                     <TextInput
                         id="email"
@@ -105,12 +116,12 @@ export default function Register() {
                     <InputError message={errors.email} className="mt-2" />
                 </div>
 
-                <div className="sm:mt-6 mt-8 ">
+                <div className="sm:mt-6 mt-5 relative">
                    
 
                     <TextInput
                         id="password"
-                        type="password"
+                        type={showPassword ? 'text' : 'password'}
                         name="password"
                         value={data.password}
                         placeholder="Password"
@@ -121,13 +132,14 @@ export default function Register() {
                     />
 
                     <InputError message={errors.password} className="mt-2" />
+                    <div className="absolute top-2 right-6 text-dark dark:text-gray-300 cursor-pointer" onClick={handleTogglePassword}>{showPassword ? <FaEyeSlash size={24} /> : <FaEye size={24} />}</div>
                 </div>
 
-                <div className="sm:mt-6 mt-8">
+                <div className="sm:mt-6 mt-5 relative">
                    
                     <TextInput
                         id="password_confirmation"
-                        type="password"
+                        type={showConfirmPassword ? 'text' : 'password'}
                         name="password_confirmation"
                         value={data.password_confirmation}
                         placeholder="Confirm Password"
@@ -138,6 +150,7 @@ export default function Register() {
                     />
 
                     <InputError message={errors.password_confirmation} className="mt-2" />
+                    <div className="absolute top-2 right-6 text-dark dark:text-gray-300 cursor-pointer" onClick={handleToggleConfrimPassword}>{showConfirmPassword ? <FaEyeSlash size={24} /> : <FaEye size={24} />}</div>
                 </div>
 
                 <Link href='#' onClick={handleClick} className=' flex items-center gap-x-3'> <FaArrowRight className='text-blue-600'/> <div className=' text-sky-500 my-2 capitalize'>View terms and policies</div></Link>

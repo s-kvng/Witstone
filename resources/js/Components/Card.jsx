@@ -147,20 +147,19 @@ const Card = ({ chirp }) => {
                             href={route("posts.like", chirp.id)}
                             method="post"
                         >
-                            {chirp.liked ? (
-                                <span>
-                                    {" "}
-                                    <IoMdHeart
-                                        size={20}
-                                        className=" text-sky-600 dark:text-sky-600"
-                                    />
-                                </span>
-                            ) : (
-                                <span>
-                                    {" "}
-                                    <IoMdHeart size={20} className="" />
-                                </span>
-                            )}
+                            <span
+                                className={`${chirp.liked ? 'transform scale-160' : ''}`}
+                            >
+                                {" "}
+                                <IoMdHeart
+                                    size={20}
+                                    className={
+                                        chirp.liked
+                                            ? " text-sky-600 dark:text-sky-600 animate-pulse transition-all ease-in-out duration-1000 transform scale-110 "
+                                            : "transition-all ease-in-out duration-700"
+                                    }
+                                />
+                            </span>
                         </Link>
                         <span className=" dark:text-zinc-400 text-zinc-600">
                             {chirp.likesCount}
