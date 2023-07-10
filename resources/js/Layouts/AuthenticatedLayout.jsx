@@ -6,7 +6,7 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 
 //components
-import Footer from "@/Components/Footer";
+import NewFooter from "@/Components/NewFooter";
 import MoonIcon from "@/Components/ThemeIcons";
 import SunIcon from "@/Components/SunIcon";
 
@@ -47,7 +47,7 @@ export default function Authenticated({ user, header, children }) {
                                 <div className="flex">
                                     <div className="shrink-0 flex items-center">
                                         <Link href="/">
-                                            <ApplicationLogo className="block w-20 h-20 absolute top-0" />
+                                            <ApplicationLogo className="block w-20 h-20 absolute top-0 sm:left-6" />
                                         </Link>
                                     </div>
 
@@ -237,7 +237,7 @@ export default function Authenticated({ user, header, children }) {
                             <MoonIcon className={" fill-gray-700/10"} />
                         )}
                     </button>
-                    <Footer />
+                    <NewFooter />
                 </div>
             )}
         </>
