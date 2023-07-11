@@ -9,7 +9,7 @@ import { Link } from "@inertiajs/react";
 
 const NewFooter = () => {
     return (
-        <footer className="   dark:bg-[#050505] dark:text-white border-2 dark:border-slate-100 border-black  fixed bottom-2 w-[50%] translate-x-1/2 opacity-98 z-40 rounded-full">
+        <footer className="   dark:bg-[#050505] dark:text-white border-2 dark:border-slate-100 border-gray-600 fixed bottom-2 w-[50%] translate-x-1/2 opacity-98 z-40 rounded-full">
             <div className="flex justify-center items-center align-items-center md:gap-24 gap-10 py-[2px]">
                 <div className="flex flex-col align-items-center justify-center items-center  gap-y-[2px] mt-[1px]">
                     <Link

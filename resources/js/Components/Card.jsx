@@ -155,8 +155,8 @@ const Card = ({ chirp }) => {
                                     size={20}
                                     className={
                                         chirp.liked
-                                            ? " text-sky-600 dark:text-sky-600 animate-pulse transition-all ease-in-out duration-1000 transform scale-110 "
-                                            : "transition-all ease-in-out duration-700"
+                                            ? " text-sky-600 dark:text-sky-600 animate-pulse transition-all ease-in-out duration-500 transform scale-110 "
+                                            : "transition-all ease-in-out duration-500"
                                     }
                                 />
                             </span>

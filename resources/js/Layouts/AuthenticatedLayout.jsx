@@ -3,21 +3,31 @@ import ApplicationLogo from "@/Components/ApplicationLogo";
 import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
-import { Link } from "@inertiajs/react";
+import { Link , usePage } from "@inertiajs/react";
 
 //components
 import NewFooter from "@/Components/NewFooter";
 import MoonIcon from "@/Components/ThemeIcons";
 import SunIcon from "@/Components/SunIcon";
+import  BetaModal  from "@/Components/BetaModal";
 
 // custom hooks
 import useThemeSwitcher from "@/hooks/useThemeSwitcher";
 
 export default function Authenticated({ user, header, children }) {
+    const { auth } = usePage().props;
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
     const [mode, setMode] = useThemeSwitcher();
-
     const [isLoading, setIsLoading] = useState(true);
+    let isNew;
+
+    if(auth.user.is_new === 1){
+        isNew = true
+    }
+    else if(auth.user.is_new === 0){
+        isNew = false;
+    }
+
 
     useEffect(() => {
         // Simulating the loading time
@@ -239,6 +249,8 @@ export default function Authenticated({ user, header, children }) {
                         )}
                     </button>
                     <NewFooter />
+                    {isNew && <BetaModal/>}
+                    
                 </div>
             )}
         </>
