@@ -31,6 +31,7 @@ export default function Authenticated({ user, header, children }) {
       }, []);
 
     
+    //   dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-950
 
     return (
         <>
@@ -47,7 +48,7 @@ export default function Authenticated({ user, header, children }) {
                                 <div className="flex">
                                     <div className="shrink-0 flex items-center">
                                         <Link href="/">
-                                            <ApplicationLogo className="block w-20 h-20 absolute top-0 sm:left-6" />
+                                            <ApplicationLogo className="block w-20 h-20 sm:w-16 sm:h-16 xl:w-20 xl:h-20 absolute top-0 sm:top-2 xl:top-0 xl:left-6 sm:left-0 " />
                                         </Link>
                                     </div>
 

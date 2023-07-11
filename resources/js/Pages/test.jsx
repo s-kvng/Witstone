@@ -1,4 +1,4 @@
-<>
+{/* <>
 
 <div className="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
 <svg
@@ -103,4 +103,4 @@ const useThemeSwitcher = () => {
 
 export default useThemeSwitcher;
 
-</>
+</> */}
