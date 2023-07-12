@@ -27,9 +27,10 @@ const truncateText = (text, maxLength) => {
 
 const Card = ({ chirp }) => {
     const { auth } = usePage().props;
-
     const [editing, setEditing] = useState(false);
-    // const [ likes , setLikes ] = useState(chirp.likesCount);
+    const [ likes , setLikes ] = useState(chirp.liked);
+    const [ likeCount , setLikeCount ] = useState(chirp.likesCount)
+    
 
     const { data, setData, patch, clearErrors, reset, errors } = useForm({
         message: chirp.message,
@@ -46,6 +47,17 @@ const Card = ({ chirp }) => {
     const text = chirp.message;
     const maxLength = 50;
     const truncatedText = truncateText(text, maxLength);
+
+    //handle state for likes
+    const handleLikes = () => {
+        if(likes){
+            setLikeCount((prevLikesCount)=> prevLikesCount - 1);
+        }
+        else if(!likes){
+            setLikeCount((prevLikesCount)=> prevLikesCount + 1);
+        }
+        setLikes(!likes)
+    }
 
     return (
         <div className="p-6 flex space-x-2 ">
@@ -146,23 +158,24 @@ const Card = ({ chirp }) => {
                             as="button"
                             href={route("posts.like", chirp.id)}
                             method="post"
+                            onClick={handleLikes}
                         >
                             <span
-                                className={`${chirp.liked ? 'transform scale-160' : ''}`}
+                                className={`${likes ? 'transform scale-160' : ''}`}
                             >
                                 {" "}
                                 <IoMdHeart
                                     size={20}
                                     className={
-                                        chirp.liked
-                                            ? " text-sky-600 dark:text-sky-600 animate-pulse transition-all ease-in-out duration-500 transform scale-110 "
-                                            : "transition-all ease-in-out duration-500"
+                                        likes
+                                            ? " text-sky-600 dark:text-sky-600 animate-pulse transition-all ease-in-out duration-300 transform scale-110 "
+                                            : "transition-all ease-in-out duration-300"
                                     }
                                 />
                             </span>
                         </Link>
                         <span className=" dark:text-zinc-400 text-zinc-600">
-                            {chirp.likesCount}
+                            {likeCount}
                         </span>
                     </p>
                     <p className="flex align-items-center">

@@ -78,7 +78,7 @@ export default function Register() {
 
     return (
         <GuestLayout>
-            <Head title="Register" />
+            <Head title="Register || Beta" />
 
             <form onSubmit={submit} className=' mt-[26vh] pt-5 sm:pt-6'>
                 <div>
