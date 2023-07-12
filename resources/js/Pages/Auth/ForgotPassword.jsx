@@ -19,7 +19,7 @@ export default function ForgotPassword({ status }) {
         <GuestLayout>
             <Head title="Forgot Password" />
 
-            <div className="mb-4 text-sm text-gray-600 dark:text-gray-400">
+            <div className="mb-4 sm:mt-[20vh] mt-[35vh] text-sm text-gray-600 dark:text-gray-400">
                 Forgot your password? No problem. Just let us know your email address and we will email you a password
                 reset link that will allow you to choose a new one.
             </div>
@@ -32,7 +32,8 @@ export default function ForgotPassword({ status }) {
                     type="email"
                     name="email"
                     value={data.email}
-                    className="mt-1 block w-full"
+                    placeholder="Enter Email"
+                    className="mt-1 block w-full placeholder:text-slate-600 placeholder:italic"
                     isFocused={true}
                     onChange={(e) => setData('email', e.target.value)}
                 />
@@ -40,7 +41,7 @@ export default function ForgotPassword({ status }) {
                 <InputError message={errors.email} className="mt-2" />
 
                 <div className="flex items-center justify-end mt-4">
-                    <PrimaryButton className="ml-4" disabled={processing}>
+                    <PrimaryButton className="ml-4 bg-sky-600 hover:bg-sky-500" disabled={processing}>
                         Email Password Reset Link
                     </PrimaryButton>
                 </div>
