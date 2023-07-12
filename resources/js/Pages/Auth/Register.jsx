@@ -176,7 +176,7 @@ export default function Register() {
                 <div className="flex flex-col-reverse mt-4 items-center justify-center gap-y-4">
                     <Link
                         href={route('login')}
-                        className="underline text-sm text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-700 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                        className="underline text-sm text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-700 focus:outline-none focus:ring-none "
                     >
                         Already registered?
                     </Link>
