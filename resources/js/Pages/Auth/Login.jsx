@@ -41,7 +41,7 @@ export default function Login({ status, canResetPassword }) {
     return (
        <>
              <GuestLayout>
-            <Head title="Log in" />
+            <Head title="Log in || Beta" />
 
             {status && (
                 <div className="mb-4 font-medium text-sm text-green-600">

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 // @import '~loaders.css/src/animations/pacman.scss';
-@import 'loaders.css/src/animations/pacman.scss';
+//@import 'loaders.css/src/animations/pacman.scss';
 
 
 
@@ -72,6 +72,20 @@
 }
 
 
+.circle-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid white;
+  border-radius: 100%;
+  background-color: #000;
+  color: #fff;
+}
+
+
+
 // .loader-container {
 //     position: fixed;
 //     top: 0;
@@ -125,6 +139,11 @@
 //       border-width: 10px;
 //     }
 //   }
+
+// .loader-container.loading {
+//   opacity: 1;
+//   visibility: visible;
+// } 
       
   
   

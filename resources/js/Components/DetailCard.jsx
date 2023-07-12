@@ -23,6 +23,7 @@ const DetailCard = ({ user, chirp }) => {
 
     const [editing, setEditing] = useState(false);
     const [liked, setLiked] = useState(false);
+    const [ likesCount , setLikesCount ] = useState(chirp.likesCount);
 
     const { data, setData, patch, clearErrors, reset, errors } = useForm({
         message: chirp.message,
@@ -40,8 +41,18 @@ const DetailCard = ({ user, chirp }) => {
     });
 
     useEffect(() => {
-        demo ? setLiked(true) : setLiked(false);
+        demo ? setLiked(true) : setLiked(false);   
     }, [demo]);
+
+    const handleClick = () => {
+        if(liked){
+            setLikesCount((prevLikesCount)=> prevLikesCount - 1);
+        }
+        else if(!liked){
+            setLikesCount((prevLikesCount)=> prevLikesCount + 1);
+        }
+        setLiked(!liked);
+    }
 
     return (
         <div className="p-6 flex space-x-2 ">
@@ -129,6 +140,7 @@ const DetailCard = ({ user, chirp }) => {
                             as="button"
                             href={route("posts.like", chirp.id)}
                             method="post"
+                            onClick={handleClick}
                         >
                              <span
                                 className={`${liked ? '' : ''}`}
@@ -138,14 +150,14 @@ const DetailCard = ({ user, chirp }) => {
                                     size={20}
                                     className={
                                         liked
-                                            ? " text-sky-600 dark:text-sky-600 animate-pulse transition-all ease-in-out duration-800 transform scale-110"
-                                            : "transition-all ease-in-out duration-800"
+                                            ? " text-sky-600 dark:text-sky-600 animate-pulse transition-all ease-in-out duration-300 transform scale-110"
+                                            : "transition-all ease-in-out duration-300"
                                     }
                                 />
                             </span>
                         </Link>
                         <span className=" dark:text-zinc-400 text-zinc-600">
-                            {chirp.likesCount}
+                            {likesCount}
                         </span>
                     </p>
                     <p className="flex align-items-center">
