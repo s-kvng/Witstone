@@ -29,7 +29,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     <div>
                         <Link
                             href={route("login")}
-                            className=" bg-blue-400 text-white dark:text-black dark:bg-white py-4 px-12 text-2xl font-bold uppercase rounded-full shadow-lg"
+                            className=" tap bg-blue-400 text-white dark:text-black dark:bg-white py-4 px-12 text-2xl font-bold uppercase rounded-full shadow-lg"
                         >
                             Lets Start
                         </Link>

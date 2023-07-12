@@ -144,7 +144,12 @@
 //   opacity: 1;
 //   visibility: visible;
 // } 
-      
+  
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
   
   
       
