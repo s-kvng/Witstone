@@ -7,6 +7,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,13 +44,13 @@ Route::get('/policy', function () {
 })->middleware(['auth', 'verified'])->name('policy');
 
 
-//
+//posts route
 Route::resource('posts', PostController::class)
     ->only(['index','create', 'store', 'destroy', 'show', 'update'])
     ->middleware(['auth', 'verified']);
 
 
-    //
+    //likes routes
 Route::post('/posts/{post}/like', [LikedPostController::class, 'toggle'])->name('posts.like');
 
 
@@ -56,6 +59,23 @@ Route::resource('comment', CommentController::class)
     ->only(['store', 'update', 'destroy'])
     ->middleware(['auth', 'verified']);
 
+    //Email verification routes
+    Route::get('/email/verify', function () {
+        return view('auth.verify-email');
+    })->middleware('auth')->name('verification.notice');
+ 
+    Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+        $request->fulfill();
+    
+        return redirect('/posts');
+    })->middleware(['auth', 'signed'])->name('verification.verify');
+
+ 
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+ 
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
     //
 Route::middleware('auth')->group(function () {
