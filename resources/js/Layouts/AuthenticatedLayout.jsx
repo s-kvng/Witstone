@@ -1,44 +1,43 @@
-import { useState , useEffect} from "react";
+import { useState, useEffect } from "react";
 import ApplicationLogo from "@/Components/ApplicationLogo";
 import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
-import { Link , usePage } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 
 //components
 import NewFooter from "@/Components/NewFooter";
 import MoonIcon from "@/Components/ThemeIcons";
 import SunIcon from "@/Components/SunIcon";
-import  BetaModal  from "@/Components/BetaModal";
+import BetaModal from "@/Components/BetaModal";
 
 // custom hooks
 import useThemeSwitcher from "@/hooks/useThemeSwitcher";
 
 export default function Authenticated({ user, header, children }) {
     const { auth } = usePage().props;
-    const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
+    const [showingNavigationDropdown, setShowingNavigationDropdown] =
+        useState(false);
     const [mode, setMode] = useThemeSwitcher();
     const [isLoading, setIsLoading] = useState(true);
     let isNew;
 
-    if(auth.user.is_new === 1){
-        isNew = true
-    }
-    else if(auth.user.is_new === 0){
+    if (auth.user.is_new === 1) {
+        isNew = true;
+    } else if (auth.user.is_new === 0) {
         isNew = false;
     }
-
 
     useEffect(() => {
         // Simulating the loading time
         const timeout = setTimeout(() => {
-          setIsLoading(false);
+            setIsLoading(false);
         }, 2000);
-    
+
         return () => {
-          clearTimeout(timeout);
+            clearTimeout(timeout);
         };
-      }, []);
+    }, []);
 
     // useEffect(() => {
     //     const handleContentLoaded = () => {
@@ -46,25 +45,23 @@ export default function Authenticated({ user, header, children }) {
     //     };
     // console.log("efffect")
     //     document.addEventListener("DOMContentLoaded", handleContentLoaded);
-    
+
     //     return () => {
     //       document.removeEventListener("DOMContentLoaded", handleContentLoaded);
     //     };
     //   }, []);
 
-    
     //   dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-950
 
     return (
         <>
             {isLoading ? (
                 <div className="fixed inset-0 flex justify-center items-center bg-gray-900/10 dark:bg-gray-800 opacity-100 transition-opacity ease-in duration-500">
-                    <div className="loader">
-                    </div>
+                    <div className="loader"></div>
                 </div>
             ) : (
                 <div className="h-screen bg-gradient-to-r from-gray-100 to-gray-200 dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-950 overflow-auto relative">
-                    <nav className="bg-white fixed top-0 left-0 right-0 opacity-99 z-[999]  dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 shadow-md">
+                    <nav className="bg-white fixed top-0 left-0 right-0 opacity-95 z-[999]  dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 shadow-md">
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="flex justify-between h-16">
                                 <div className="flex">
@@ -261,8 +258,7 @@ export default function Authenticated({ user, header, children }) {
                         )}
                     </button>
                     <NewFooter />
-                    {isNew && <BetaModal/>}
-                    
+                    {isNew && <BetaModal />}
                 </div>
             )}
         </>

@@ -6,10 +6,16 @@ import { useState } from "react";
 import { Head } from "@inertiajs/react";
 import { Link } from "@inertiajs/react";
 
-import { FaQuestionCircle, FaGoogle } from "react-icons/fa";
+import {
+    FaQuestionCircle,
+    FaGoogle,
+    FaExclamationCircle,
+} from "react-icons/fa";
 
 import QuestionsModal from "@/Components/QuestionsModal";
 import ContributionModal from "@/Components/ContributionModal";
+import AboutXolace from "@/Components/AboutXolace";
+import Modal from "@/Components/Modal";
 import {
     GithubIcon,
     TwitterIcon,
@@ -19,7 +25,7 @@ import {
 export default function Dashboard({ auth }) {
     const [openQuestionModal, setOpenQuestionModal] = useState(false);
     const [openContributionModal, setOpenContributionModal] = useState(false);
-    const [loading, setLoading] = useState(true);
+    const [openAboutModal, setAboutModal] = useState(false);
 
     const openingModel = (e) => {
         e.preventDefault();
@@ -31,15 +37,26 @@ export default function Dashboard({ auth }) {
         setOpenQuestionModal(false);
     };
 
-    //
+    //open contribution modal
     const handleContributionModal = (e) => {
         e.preventDefault();
         setOpenContributionModal(true);
     };
 
-    //
+    //close contribution modal
     const closeContributionModal = () => {
         setOpenContributionModal(false);
+    };
+
+    //open About Xolace modal
+    const handleAboutModal = (e) => {
+        e.preventDefault();
+        setAboutModal(true);
+    };
+
+    //close About Xolace modal
+    const closeAboutModal = () => {
+        setAboutModal(false);
     };
 
     return (
@@ -48,19 +65,18 @@ export default function Dashboard({ auth }) {
             // header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Dashboard</h2>}
         >
             <Head title="Channel" />
-
             <div className=" pt-20 sm:pt-28">
                 <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-10 ">
                     <Link href={route("policy")}>
-                        <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm rounded-lg flex gap-5 p-5 items-center">
+                        <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm rounded-lg flex gap-5 p-5 items-center h-[10px] min-h-[100px] max-h-[120px] sm:h-auto">
                             <div>
                                 <FaQuestionCircle
                                     size={30}
-                                    className="text-red-500"
+                                    className="text-red-400"
                                 />
                             </div>
                             <div className=" text-gray-900 dark:text-gray-100">
-                                <h1 className="text-xl font-bold uppercase">
+                                <h1 className="text-lg font-bold uppercase">
                                     Policies
                                 </h1>
                                 <p className="text-gray-500">
@@ -70,18 +86,17 @@ export default function Dashboard({ auth }) {
                         </div>
                     </Link>
                 </div>
-
-                <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-10">
+                <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 mb-10 ">
                     <Link href="#" onClick={openingModel}>
-                        <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm rounded-lg flex gap-5 p-5 items-center">
+                        <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm rounded-lg flex gap-5 p-5 items-center h-[10px] min-h-[100px] max-h-[120px] sm:h-auto">
                             <div>
                                 <FaQuestionCircle
                                     size={30}
-                                    className="text-red-500"
+                                    className="text-red-400"
                                 />
                             </div>
                             <div className=" text-gray-900 dark:text-gray-100">
-                                <h1 className="text-xl font-bold uppercase">
+                                <h1 className="text-lg font-bold uppercase">
                                     Questions
                                 </h1>
                                 <p className="text-gray-500">Ask</p>
@@ -89,18 +104,17 @@ export default function Dashboard({ auth }) {
                         </div>
                     </Link>
                 </div>
-
-                <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 mb-10">
                     <Link href="#" onClick={handleContributionModal}>
-                        <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm rounded-lg flex gap-5 p-5 items-center">
+                        <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm rounded-lg flex gap-5 p-5 items-center h-[10px] min-h-[100px] max-h-[120px] sm:h-auto">
                             <div>
                                 <FaQuestionCircle
                                     size={30}
-                                    className="text-red-500"
+                                    className="text-red-400"
                                 />
                             </div>
                             <div className=" text-gray-900 dark:text-gray-100">
-                                <h1 className="text-xl font-bold uppercase">
+                                <h1 className="text-lg font-bold uppercase">
                                     Contribution
                                 </h1>
                                 <p className="text-gray-500">
@@ -110,8 +124,31 @@ export default function Dashboard({ auth }) {
                         </div>
                     </Link>
                 </div>
+
+                {/* about card  */}
+                <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 mb-16 pb-5">
+                    <Link href="#" onClick={handleAboutModal}>
+                        <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm rounded-lg flex gap-5 p-5 items-center h-[10px] min-h-[100px] max-h-[120px] sm:h-auto">
+                            <div>
+                                <FaExclamationCircle
+                                    size={30}
+                                    className="text-red-500"
+                                />
+                            </div>
+                            <div className=" text-gray-900 dark:text-gray-100">
+                                <h1 className="text-lg font-bold uppercase">
+                                    About Xolace | Beta
+                                </h1>
+                                <p className="text-gray-500">
+                                    Find out more about xolace
+                                </p>
+                            </div>
+                        </div>
+                    </Link>
+                </div>
             </div>
 
+            {/* Question modal */}
             <QuestionsModal
                 show={openQuestionModal}
                 onClose={closeQuestionModel}
@@ -139,7 +176,6 @@ export default function Dashboard({ auth }) {
                     </div>
                 </div>
             </QuestionsModal>
-
             <ContributionModal
                 show={openContributionModal}
                 onClose={closeContributionModal}
@@ -164,13 +200,14 @@ export default function Dashboard({ auth }) {
                                 <span>&#x1F468;&#x200D;&#x1F4BB; </span>
                                 Technical Support
                             </h2>
-                            <div className="px-2">
+                            <div className="px-2 mb-4">
                                 <p className="dark:text-gray-400 mb-2">
                                     <span class="emoji">&#x1F9A0;</span>Found a
                                     bug ?
                                 </p>
                                 <p className=" dark:text-gray-400">
-                                    Want to contribute to adding a new feature ?
+                                    <span>&#x1F680;</span>Want to contribute to
+                                    adding a new feature ?
                                 </p>
                             </div>
                             <div className=" flex justify-center items-center ">
@@ -188,6 +225,18 @@ export default function Dashboard({ auth }) {
                     </div>
                 </div>
             </ContributionModal>
+
+            {/* about modal */}
+            <AboutXolace show={openAboutModal} onClose={closeAboutModal}>
+                <div className="p-6">
+                    <h2 className=" text-2xl font-semibold capitalize text-white">
+                        Xolace | Beta
+                    </h2>
+                    <div>
+                        <p>Coming soon</p>
+                    </div>
+                </div>
+            </AboutXolace>
         </AuthenticatedLayout>
     );
 }
