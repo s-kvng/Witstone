@@ -32,13 +32,13 @@ Route::get('/', function () {
     ]);
 });
 
-//
+//channel route
 Route::get('/channel', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('channel');
 
 
-//
+//policy route
 Route::get('/policy', function () {
     return Inertia::render('Policies');
 })->middleware(['auth', 'verified'])->name('policy');

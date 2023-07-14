@@ -5,6 +5,9 @@
 // @import '~loaders.css/src/animations/pacman.scss';
 //@import 'loaders.css/src/animations/pacman.scss';
 
+html {
+  scroll-behavior: smooth;
+}
 
 
 // .loader-hidden {
@@ -149,6 +152,7 @@ button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
+
 
   
   

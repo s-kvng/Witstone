@@ -28,9 +28,8 @@ const truncateText = (text, maxLength) => {
 const Card = ({ chirp }) => {
     const { auth } = usePage().props;
     const [editing, setEditing] = useState(false);
-    const [ likes , setLikes ] = useState(chirp.liked);
-    const [ likeCount , setLikeCount ] = useState(chirp.likesCount)
-    
+    const [likes, setLikes] = useState(chirp.liked);
+    const [likeCount, setLikeCount] = useState(chirp.likesCount);
 
     const { data, setData, patch, clearErrors, reset, errors } = useForm({
         message: chirp.message,
@@ -45,19 +44,18 @@ const Card = ({ chirp }) => {
 
     //Truncate the post text
     const text = chirp.message;
-    const maxLength = 50;
+    const maxLength = 40;
     const truncatedText = truncateText(text, maxLength);
 
     //handle state for likes
     const handleLikes = () => {
-        if(likes){
-            setLikeCount((prevLikesCount)=> prevLikesCount - 1);
+        if (likes) {
+            setLikeCount((prevLikesCount) => prevLikesCount - 1);
+        } else if (!likes) {
+            setLikeCount((prevLikesCount) => prevLikesCount + 1);
         }
-        else if(!likes){
-            setLikeCount((prevLikesCount)=> prevLikesCount + 1);
-        }
-        setLikes(!likes)
-    }
+        setLikes(!likes);
+    };
 
     return (
         <div className="p-6 flex space-x-2 ">
@@ -161,7 +159,9 @@ const Card = ({ chirp }) => {
                             onClick={handleLikes}
                         >
                             <span
-                                className={`${likes ? 'transform scale-160' : ''}`}
+                                className={`${
+                                    likes ? "transform scale-160" : ""
+                                }`}
                             >
                                 {" "}
                                 <IoMdHeart
