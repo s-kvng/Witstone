@@ -40,6 +40,18 @@ export default function Authenticated({ user, header, children }) {
         };
       }, []);
 
+    // useEffect(() => {
+    //     const handleContentLoaded = () => {
+    //       setIsLoading(false);
+    //     };
+    // console.log("efffect")
+    //     document.addEventListener("DOMContentLoaded", handleContentLoaded);
+    
+    //     return () => {
+    //       document.removeEventListener("DOMContentLoaded", handleContentLoaded);
+    //     };
+    //   }, []);
+
     
     //   dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-950
 

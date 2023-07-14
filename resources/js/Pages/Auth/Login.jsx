@@ -57,7 +57,7 @@ export default function Login({ status, canResetPassword }) {
                         name="email"
                         placeholder="Email"
                         value={data.email}
-                        className="mt-1 block w-full te"
+                        className="mt-1 block w-full placeholder:italic placeholder:text-slate-400"
                         autoComplete="username"
                         isFocused={true}
                         onChange={(e) => setData("email", e.target.value)}
@@ -74,7 +74,7 @@ export default function Login({ status, canResetPassword }) {
                         name="password"
                         placeholder="Password"
                         value={data.password}
-                        className="mt-1 block w-full  "
+                        className="mt-1 block w-full placeholder:italic placeholder:text-slate-400 "
                         autoComplete="current-password"
                         onChange={(e) => setData("password", e.target.value)}
                     />
@@ -121,7 +121,7 @@ export default function Login({ status, canResetPassword }) {
                         <span className=" ms-2">
                             <Link
                                 href={route("register")}
-                                className="py-4 underline text-sm text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-700 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                                className="underline text-sm text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-700 focus:outline-none focus:ring-none"
                             >
                                 Sign Up
                             </Link>

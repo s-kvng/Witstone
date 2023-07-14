@@ -89,7 +89,7 @@ export default function Register() {
                         name="name"
                         value={data.name}
                         placeholder="userName"
-                        className=" block w-full"
+                        className=" block w-full placeholder:italic placeholder:text-slate-400"
                         autoComplete="name"
                         isFocused={true}
                         onChange={(e) => setData('name', e.target.value)}
@@ -107,7 +107,7 @@ export default function Register() {
                         name="email"
                         value={data.email}
                         placeholder="Email"
-                        className="mt-1 block w-full"
+                        className="mt-1 block w-full placeholder:italic placeholder:text-slate-400"
                         autoComplete="username"
                         onChange={(e) => setData('email', e.target.value)}
                         required
@@ -125,7 +125,7 @@ export default function Register() {
                         name="password"
                         value={data.password}
                         placeholder="Password"
-                        className="mt-1 block w-full"
+                        className="mt-1 block w-full placeholder:italic placeholder:text-slate-400"
                         autoComplete="new-password"
                         onChange={(e) => setData('password', e.target.value)}
                         required
@@ -143,7 +143,7 @@ export default function Register() {
                         name="password_confirmation"
                         value={data.password_confirmation}
                         placeholder="Confirm Password"
-                        className="mt-1 block w-full"
+                        className="mt-1 block w-full placeholder:italic placeholder:text-slate-400"
                         autoComplete="new-password"
                         onChange={(e) => setData('password_confirmation', e.target.value)}
                         required
@@ -176,7 +176,7 @@ export default function Register() {
                 <div className="flex flex-col-reverse mt-4 items-center justify-center gap-y-4">
                     <Link
                         href={route('login')}
-                        className="underline text-sm text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-700 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                        className="underline text-sm text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-700 focus:outline-none focus:ring-none "
                     >
                         Already registered?
                     </Link>
