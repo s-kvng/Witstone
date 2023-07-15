@@ -12,7 +12,6 @@ import InputError from "./InputError";
 import Dropdown from "./Dropdown";
 import PrimaryButton from "./PrimaryButton";
 
-
 //packages
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -20,7 +19,6 @@ import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 
 const CommentCard = ({ comment }) => {
-
     const { auth } = usePage().props;
 
     //
@@ -34,25 +32,13 @@ const CommentCard = ({ comment }) => {
         });
     };
 
-
     const { data, setData, patch, clearErrors, reset, errors } = useForm({
         content: comment.content,
     });
 
     return (
         <div className=" p-6 flex space-x-2 border-t-[1px] border-gray-500 px-10 ">
-            {/* <li
-                key={comment.id}
-                className=" border-t-[1px] border-gray-500 px-10"
-            >
-                <p>{comment.content}</p>
-                <p className=" text-gray-600">
-                    Comment by: <span>{comment.user.name}</span>
-                </p>
-            </li> */}
-
-
-<svg
+            <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6 text-gray-500 -scale-x-100"
                 fill="none"
@@ -134,17 +120,10 @@ const CommentCard = ({ comment }) => {
                     </form>
                 ) : (
                     <p className=" mt-4 mb-3 text-lg dark:text-gray-300">
-                       
                         {comment.content}
-                        
-                       
                     </p>
                 )}
-
-                
             </div>
-
-
         </div>
     );
 };

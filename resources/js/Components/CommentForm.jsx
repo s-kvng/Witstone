@@ -4,12 +4,10 @@ import React, { useEffect, useState } from "react";
 import InputError from "@/Components/InputError";
 import PrimaryButton from "@/Components/PrimaryButton";
 
-//
 import { useForm } from "@inertiajs/react";
 
 const CommentForm = ({ postId }) => {
     const [disable, setDisable] = useState(true);
-    const [overFlow, setOverflow] = useState(false);
 
     const { data, setData, post, processing, reset, errors } = useForm({
         content: "",

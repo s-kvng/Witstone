@@ -5,8 +5,8 @@ const useThemeSwitcher = () => {
     const [mode, setMode] = useState("");
 
     useEffect(() => {
+        // checking the systems prefered theme
         const mediaQuery = window.matchMedia(preferDarkQuery);
-
         const storedTheme = window.localStorage.getItem("theme");
 
         if (storedTheme) {
