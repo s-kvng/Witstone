@@ -1,0 +1,97 @@
+import React, { useState, useEffect } from "react";
+
+const useThemeSwitcher = () => {
+    const preferDarkQuery = "(prefers-color-scheme: dark)";
+    const [mode, setMode] = useState("");
+   
+
+    useEffect(() => {
+
+        const mediaQuery = window.matchMedia(preferDarkQuery);
+        
+        console.log("mediaQ->", mediaQuery.matches)
+        mediaQuery.matches && setMode("dark")
+        
+        console.log("mediaQ2->",mode); 
+        
+        const userPref = window.localStorage.getItem("theme");
+          
+
+        const handleChange = () => {
+            if (userPref) {
+                let check = userPref === "dark" ? "dark" : "light";
+                setMode(check);
+
+
+                if (check === "dark") {
+                    
+                    document.documentElement.classList.add("dark");
+                } else {
+                    
+                    document.documentElement.classList.remove("dark");
+                }
+            } else {
+                let check = mediaQuery.matches ? "dark" : "light";
+                setMode(check);
+
+                if (check === "dark") {
+                    document.documentElement.classList.add("dark");
+                } else {
+                    document.documentElement.classList.remove("dark");
+                }
+            }
+
+        };
+
+        mediaQuery.addEventListener("change", handleChange);
+  
+
+        return () => mediaQuery.removeEventListener("change", handleChange);
+    }, []);
+
+    useEffect(() => {
+        if (mode === "dark") {
+            window.localStorage.setItem("theme", "dark");
+            document.documentElement.classList.add("dark");
+        } else {
+            window.localStorage.setItem("theme", "light");
+            document.documentElement.classList.remove("dark");
+        }
+    }, [mode]);
+
+    return [mode, setMode];
+};
+
+export default useThemeSwitcher;
+
+
+
+
+  public function test_Posts_Index_Displays_Posts()
+{
+    // Create a user
+    $user = User::factory()->create();
+    
+    // Create test posts associated with the user
+    $posts = Post::factory()->count(5)->create(['user_id' => $user->id]);
+    
+    $this->actingAs($user);
+    
+    $response = $this->get(route('posts.index'));
+    
+    $response->assertStatus(200);
+// $response->assertInertia(fn ( Assert $page) => 
+    //     $page->component('Post/Index')
+    //         ->where('props.posts', function (Assert $posts) use ($posts) {
+    //             $posts->has($posts->count(), fn (Assert $post, $index) => 
+    //                 $post->where('id', $posts[$index]->id)
+    //                     ->where('message', $posts[$index]->message)
+    //                     ->where('user', function (Assert $user) use ($posts, $index) {
+    //                         $user->where('id', $posts[$index]->user->id)
+    //                             ->where('name', $posts[$index]->user->name);
+    //                     })
+    //                     ->where('likesCount', $posts[$index]->getLikesCountAttribute())
+    //                     ->where('commentCount', $posts[$index]->getCommentCountAttribute())
+    //             );
+    //         })
+    // );

@@ -37,21 +37,7 @@ class PostTest extends TestCase
     $response = $this->get(route('posts.index'));
     
     $response->assertStatus(200);
-    // $response->assertInertia(fn ( Assert $page) => 
-    //     $page->component('Post/Index')
-    //         ->where('props.posts', function (Assert $posts) use ($posts) {
-    //             $posts->has($posts->count(), fn (Assert $post, $index) => 
-    //                 $post->where('id', $posts[$index]->id)
-    //                     ->where('message', $posts[$index]->message)
-    //                     ->where('user', function (Assert $user) use ($posts, $index) {
-    //                         $user->where('id', $posts[$index]->user->id)
-    //                             ->where('name', $posts[$index]->user->name);
-    //                     })
-    //                     ->where('likesCount', $posts[$index]->getLikesCountAttribute())
-    //                     ->where('commentCount', $posts[$index]->getCommentCountAttribute())
-    //             );
-    //         })
-    // );
+    
 }
 
 public function test_Post_Can_Be_Created()
