@@ -1,4 +1,3 @@
-//layouts
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 import { useState } from "react";
