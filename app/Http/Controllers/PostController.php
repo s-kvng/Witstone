@@ -74,7 +74,7 @@ class PostController extends Controller
     {   
         
         $validated = $request->validate([
-            'message' => 'required|string|max:255',
+            'message' => 'required|string|max:300',
         ]);
 
         $request->user()->posts()->create($validated);
@@ -119,7 +119,7 @@ class PostController extends Controller
         $this->authorize('update', $post);
 
         $validated = $request->validate([
-            'message' => 'required|string|max:255',
+            'message' => 'required|string|max:300',
         ]);
 
         $post->update($validated);
