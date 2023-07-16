@@ -227,12 +227,53 @@ export default function Dashboard({ auth }) {
 
             {/* about modal */}
             <AboutXolace show={openAboutModal} onClose={closeAboutModal}>
-                <div className="p-6">
-                    <h2 className=" text-2xl font-semibold capitalize text-white">
-                        Xolace | Beta
-                    </h2>
-                    <div>
-                        <p>Coming soon</p>
+                <div className="py-8 px-6">
+                    <div className=" text-center mb-3">
+                        <h2 className=" text-2xl font-semibold uppercase dark:text-white text-black mb-2">
+                            Xolace | Beta
+                        </h2>
+                        <p className=" text-xl capitalize font font-semibold dark:text-gray-400 text-slate-900/80">
+                            Introducing Xolace: Where Stories Unfold in Shadows{" "}
+                            <span>&#x1F512;</span>
+                            <span>&#x1F311;</span>
+                        </p>
+                    </div>
+                    <div className=" dark:text-slate-300 text-gray-900/90">
+                        <p className=" pb-3">
+                            Step into a realm where anonymity begets raw honesty
+                            and boundless freedom. Welcome to Xolace, the
+                            captivating new platform that embraces the human
+                            experience in all its shades of light and dark{" "}
+                            <span>&#x1F30C;</span>. Here, you can unburden your
+                            soul, sharing your deepest secrets, personal
+                            struggles, or humorous tales without fear of
+                            judgment or exposure <span>&#x1F4AC;</span>.
+                        </p>
+                        <p>
+                            Each story finds solace in the collective whispers
+                            of fellow users, hidden behind the veil of anonymity{" "}
+                            <span>&#x1F3AD;</span>. Xolace cultivates a safe
+                            space, inviting you to express yourself
+                            authentically and connect with a community that
+                            understands and supports you <span>&#x1F49C;</span>.
+                            Embark on a journey of self-discovery, where tales
+                            unfold, emotions intertwine, and the human spirit
+                            finds solace in shared experiences. Join Xolace
+                            today and let your stories illuminate the shadows.
+                            <span>&#x1F512;</span>
+                        </p>
+                        <p className="py-3">
+                            <span className=" font-bold text-black">NB: </span>{" "}
+                            In this early phase of Xolace, we welcome you to a
+                            world of sharing and connection. As we navigate
+                            through limited functionalities, we kindly ask for
+                            your patience. Your valuable feedback will be our
+                            guiding light, illuminating the path towards an
+                            enhanced experience{" "}
+                            <span>&#x270F;&#xFE0F;&#x200D;&#x1F4F0;</span>.
+                            Together, let's shape the future of Xolace and
+                            create a space where stories thrive.
+                        </p>
                     </div>
                 </div>
             </AboutXolace>
