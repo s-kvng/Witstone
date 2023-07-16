@@ -239,15 +239,19 @@ export default function Dashboard({ auth }) {
                         </p>
                     </div>
                     <div className=" dark:text-slate-300 text-gray-900/90">
-                        <p className=" pb-1">
+                        <p className="">
                             Step into a realm where anonymity begets raw honesty
                             and boundless freedom. Welcome to Xolace, the
                             captivating new platform that embraces the human
                             experience in all its shades of light and dark{" "}
-                            <span>&#x1F30C;</span>. Here, you can unburden your
-                            soul, sharing your deepest secrets, personal
-                            struggles, or humorous tales without fear of
-                            judgment or exposure <span>&#x1F4AC;</span>.
+                            <span>&#x1F30C;</span>.
+                        </p>{" "}
+                        <p className="py-3">
+                            {" "}
+                            Here, you can unburden your soul, sharing your
+                            deepest secrets, personal struggles, or humorous
+                            tales without fear of judgment or exposure{" "}
+                            <span>&#x1F4AC;</span>.
                         </p>
                         <p>
                             Each story finds solace in the collective whispers
@@ -256,6 +260,8 @@ export default function Dashboard({ auth }) {
                             space, inviting you to express yourself
                             authentically and connect with a community that
                             understands and supports you <span>&#x1F49C;</span>.
+                        </p>
+                        <p className="py-3">
                             Embark on a journey of self-discovery, where tales
                             unfold, emotions intertwine, and the human spirit
                             finds solace in shared experiences. Join Xolace
