@@ -227,18 +227,18 @@ export default function Dashboard({ auth }) {
 
             {/* about modal */}
             <AboutXolace show={openAboutModal} onClose={closeAboutModal}>
-                <div className="p-10">
+                <div className="py-8 px-6">
                     <div className=" text-center mb-3">
                         <h2 className=" text-2xl font-semibold uppercase dark:text-white text-black mb-2">
                             Xolace | Beta
                         </h2>
-                        <p className=" text-xl capitalize font font-semibold dark:text-gray-400">
+                        <p className=" text-xl capitalize font font-semibold dark:text-gray-400 text-slate-900/80">
                             Introducing Xolace: Where Stories Unfold in Shadows{" "}
                             <span>&#x1F512;</span>
                             <span>&#x1F311;</span>
                         </p>
                     </div>
-                    <div className=" text-slate-300">
+                    <div className=" dark:text-slate-300 text-gray-900/90">
                         <p className=" pb-1">
                             Step into a realm where anonymity begets raw honesty
                             and boundless freedom. Welcome to Xolace, the
