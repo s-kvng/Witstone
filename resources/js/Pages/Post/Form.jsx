@@ -43,6 +43,9 @@ export default function Index({ auth }) {
                                 className=" bg-sky-500 dark:bg-sky-700 dark:text-white dark:focus:bg-sky-600 dark:hover:bg-sky-600"
                                 disabled={processing || disable}
                             >
+                                {processing && (
+                                    <span class="btnLoader mr-2 dark:before:border-white dark:after:border-gray-900/90"></span>
+                                )}{" "}
                                 Post
                             </PrimaryButton>
 

@@ -55,6 +55,9 @@ const CommentForm = ({ postId }) => {
                                 className="bg-blue-700 hover:bg-blue-500 text-black dark:bg-sky-500 dark:hover:bg-blue-400 dark:text-white dark:hover:text-zinc-200"
                                 disabled={processing || disable}
                             >
+                                {processing && (
+                                    <span class="btnLoader mr-2 dark:before:border-white dark:after:border-gray-900/90"></span>
+                                )}{" "}
                                 Add
                             </PrimaryButton>
                         </div>
