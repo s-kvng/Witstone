@@ -123,6 +123,9 @@ export default function Login({ status, canResetPassword }) {
                             className="ml-4 !px-6 !rounded-full bg-sky-400 hover:bg-sky-300"
                             disabled={processing}
                         >
+                            {processing && (
+                                <span class="btnLoader mr-2 dark:before:border-sky-600"></span>
+                            )}{" "}
                             Log in
                         </PrimaryButton>
                     </div>
